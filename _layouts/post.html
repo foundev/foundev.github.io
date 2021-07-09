@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<a href="https://blog.foundev.pro">Home</a>
+<br/>
+<small>{{ page.date | date: "%-d %B %Y" }}</small>
+<h1>{{ page.title }}</h1>
+
+<p class="view">by {{ page.author | default: site.author }}</p>
+
+{{content}}
+
+{% if page.tags %}
+<small>tags: 
+{% for tag in page.tags %}
+		 <em><a href="/tags#{{ tag | slugify}}">{{ tag }} </a></em>
+{% endfor %}
+  </small>
+{% endif %}
