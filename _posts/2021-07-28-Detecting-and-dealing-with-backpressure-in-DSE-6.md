@@ -18,13 +18,38 @@ pause new requests allowing the existing requests to complete.
 
 backpressure active regex, tells you when it is engaged
 
-```python
-back_pressure_active_re = re.compile(r"DEBUG\s+\[(?P<thread>.*)\] (?P<date>.{10} .{12}) *(?P<source_file>[^:]*):(?P<source_line>[0-9]*) - TPC backpressure is active on core (?P<core_num>\d+) with global local/remote pending tasks at (?P<global_pending>\d+)/(?P<remote_pending>\d+)")
+```shell
+"DEBUG\s+\[(?P<thread>.*)\] (?P<date>.{10} .{12}) *(?P<source_file>[^:]*):(?P<source_line>[0-9]*) - TPC backpressure is active on core (?P<core_num>\d+) with global local/remote pending tasks at (?P<global_pending>\d+)/(?P<remote_pending>\d+)"
 ```
 
-You can also just use [ripgrep](https://github.com/BurntSushi/ripgrep#installation) for `TPC backpressure is active` and see how often that is enabled.
+You can also just use [ripgrep](https://github.com/BurntSushi/ripgrep#installation) for `TPC backpressure is active` and see how often that is enabled. If I want to be extra fancy I can take the regex above, combine it with regrep and output the remoting and global pending values:
 
-So let's say we find backpressure is active what are the next steps?
+for global:
+
+`rg "DEBUG\s+\[(?P<thread>.*)\] (?P<date>.{10} .{12}) *(?P<source_file>[^:]*):(?P<source_line>[0-9]*) - TPC backpressure is active on core (?P<core_num>\d+) with global local/remote pending tasks at (?P<global_pending>\d+)/(?P<remote_pending>\d+)" -or  '$global_pending'`
+
+for remote:
+
+`rg "DEBUG\s+\[(?P<thread>.*)\] (?P<date>.{10} .{12}) *(?P<source_file>[^:]*):(?P<source_line>[0-9]*) - TPC backpressure is active on core (?P<core_num>\d+) with global local/remote pending tasks at (?P<global_pending>\d+)/(?P<remote_pending>\d+)" -or  '$remote_pending'`
+
+The higher it is the longer it will take to clear out, this can be used to measure severity, once you have the total you can try and find the time it occured at. You can find the 5 worse totals with the following
+
+```rg "DEBUG\s+\[(?P<thread>.*)\] (?P<date>.{10} .{12}) *(?P<source_file>[^:]*):(?P<source_line>[0-9]*) - TPC backpressure is active on core (?P<core_num>\d+) with global local/remote pending tasks at (?P<global_pending>\d+)/(?P<remote_pending>\d+)"  -or  '$global_pending' --no-filename | sort -n | tail -n 5
+134
+813
+1111
+1831
+1911
+```
+
+do your grep again but filter out for the worst value
+
+```
+rg "DEBUG\s+\[(?P<thread>.*)\] (?P<date>.{10} .{12}) *(?P<source_file>[^:]*):(?P<source_line>[0-9]*) - TPC backpressure is active on core (?P<core_num>\d+) with global local/remote pending tasks at (?P<global_pending>\d+)/(?P<remote_pending>\d+)" | rg 1911
+debug.log:DEBUG [CoreThread-1] 2020-01-01 01:01:01,000  NoSpamLogger.java:92 - TPC backpressure is active on core 1 with global local/remote pending tasks at 1911/120
+```
+
+Now you can compare that to node latencies at that time and see if that matches the problems you are trying to find with latency and timesouts.
 
 ## what to do
 
