@@ -34,7 +34,8 @@ for remote:
 
 The higher it is the longer it will take to clear out, this can be used to measure severity, once you have the total you can try and find the time it occured at. You can find the 5 worse totals with the following
 
-```rg "DEBUG\s+\[(?P<thread>.*)\] (?P<date>.{10} .{12}) *(?P<source_file>[^:]*):(?P<source_line>[0-9]*) - TPC backpressure is active on core (?P<core_num>\d+) with global local/remote pending tasks at (?P<global_pending>\d+)/(?P<remote_pending>\d+)"  -or  '$global_pending' --no-filename | sort -n | tail -n 5
+```sh
+rg "DEBUG\s+\[(?P<thread>.*)\] (?P<date>.{10} .{12}) *(?P<source_file>[^:]*):(?P<source_line>[0-9]*) - TPC backpressure is active on core (?P<core_num>\d+) with global local/remote pending tasks at (?P<global_pending>\d+)/(?P<remote_pending>\d+)"  -or  '$global_pending' --no-filename | sort -n | tail -n 5
 134
 813
 1111
@@ -44,7 +45,7 @@ The higher it is the longer it will take to clear out, this can be used to measu
 
 do your grep again but filter out for the worst value
 
-```
+```sh
 rg "DEBUG\s+\[(?P<thread>.*)\] (?P<date>.{10} .{12}) *(?P<source_file>[^:]*):(?P<source_line>[0-9]*) - TPC backpressure is active on core (?P<core_num>\d+) with global local/remote pending tasks at (?P<global_pending>\d+)/(?P<remote_pending>\d+)" | rg 1911
 debug.log:DEBUG [CoreThread-1] 2020-01-01 01:01:01,000  NoSpamLogger.java:92 - TPC backpressure is active on core 1 with global local/remote pending tasks at 1911/120
 ```
