@@ -3,6 +3,7 @@ title: Busy Engineers Guide to Deploying on K8s Part 1 - Setting up Docker with 
 date: 2021-10-12T00:00:00+00:00
 author: Ryan Svihla
 layout: post
+tags: [ kubernetes github, docker ]
 ---
 
 Post Valid as of October 12, 2021.
