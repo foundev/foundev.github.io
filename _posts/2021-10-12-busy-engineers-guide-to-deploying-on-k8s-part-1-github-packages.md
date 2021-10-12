@@ -55,6 +55,7 @@ I am going the easiest route, if you know how to do any of these things any othe
 * Change to new directory in my case `cd demo-ghpkg`
 * Create express site `npx express-generator -f`
 * add a Dockerfile to the directory with this content
+
 ```
 FROM node:16
 
@@ -76,9 +77,11 @@ COPY . .
 EXPOSE 8080
 CMD [ "node", "server.js" ]
 ```
+
 * create a github action `mkdir -p .github/workflows`
 * create the file `touch .github/workflows/deploy-to-ghpkg.yaml`
 * add the following content to it
+
 ```yaml
 name: GH Packages Push
 
