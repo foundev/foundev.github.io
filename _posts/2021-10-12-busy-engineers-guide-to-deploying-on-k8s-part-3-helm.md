@@ -30,11 +30,11 @@ A helm "chart" is a series of kubernetes yaml templates with a values.yaml file 
 * Create your help chart `helm create myapp`
 * Go to the new chart folder `cd myapp`
 * Edit the values.yaml file with the following changes:
-* * change image.tag from "" to "main"
-* * change image.pullPolicy from IfNotPresent to Always
-* * change image.repository from nginx to ghcri.io/<YOUR REPO>/app
-* * Update the imagePullSecrets to use the regcred secret from the last post. Therefore, remove the [] for imagePullSecrets and below it add -name: regcred
-* * Updated service.port from 80 to 3000
+  * change image.tag from "" to "main"
+  * change image.pullPolicy from IfNotPresent to Always
+  * change image.repository from nginx to ghcri.io/<YOUR REPO>/app
+  * Update the imagePullSecrets to use the regcred secret from the last post. Therefore, remove the [] for imagePullSecrets and below it add -name: regcred
+  * Updated service.port from 80 to 3000
 ```
 # Default values for myapp.
 # This is a YAML-formatted file.
@@ -187,10 +187,10 @@ spec:
 
 * Install the app to your k8s cluster with helm `helm install mydeploy myapp`
 * Test the access running the following commands
-* * get pod name `export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=myapp,app.kubernetes.io/instance=mydeploy" -o jsonpath="{.items[0].metadata.name}")`
-* * get container port `export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")`
-* * port forward `kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT`
-* * go to http://127.0.0.0:8080 in your browser
+  * get pod name `export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=myapp,app.kubernetes.io/instance=mydeploy" -o jsonpath="{.items[0].metadata.name}")`
+  * get container port `export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")`
+  * port forward `kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT`
+  * go to http://127.0.0.0:8080 in your browser
 
 ### Ingress
 
