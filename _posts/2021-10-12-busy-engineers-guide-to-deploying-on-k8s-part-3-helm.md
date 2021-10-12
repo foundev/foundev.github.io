@@ -35,6 +35,7 @@ A helm "chart" is a series of kubernetes yaml templates with a values.yaml file 
   * change image.repository from nginx to ghcri.io/<YOUR REPO>/app
   * Update the imagePullSecrets to use the regcred secret from the last post. Therefore, remove the [] for imagePullSecrets and below it add -name: regcred
   * Updated service.port from 80 to 3000
+
 ```yaml
 # Default values for myapp.
 # This is a YAML-formatted file.
@@ -120,7 +121,9 @@ tolerations: []
 
 affinity: {}
 ```
+
 * edit myapp/templates/deployment.yaml to use port 3000 instead of 80 for the containerPort
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -240,7 +243,7 @@ ingress:
   tls: []
 ```
 * Assuming you are still in the charts folder upgrade your deployment `helm upgrade mydeploy myapp`
-* navigate to http://localhost/app you should now see your express app exposed through 
+* navigate to http://localhost/app you should now see your express app exposed through http://localhost/app
 <img title="express_80.png" src="/assets/express_80.png" border="0" alt="express_80" />
 
 ## Recap
