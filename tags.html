@@ -41,16 +41,16 @@ The purpose of this snippet is to list all your posts posted with a certain tag.
 <br/>
 <a href="https://blog.foundev.pro">Home</a>
 
-<div style="display: inline-block;border: 1px solid #c6cbd1; border-bottom-color: #959da5; border-radius: 3px; box-shadow: inset 0 -1px 0 #959da5; padding: 1rem; background-color:#f8f8ff;">
+<div style="border: 1px solid #c6cbd1; border-bottom-color: #959da5; border-radius: 3px; box-shadow: inset 0 -1px 0 #959da5; padding: 1rem; background-color:#f8f8ff;">
 <h3>Tag Nav</h3>
 <div class="tags">
-	<ul style="list-style-type: square;">
+	<ul style="list-style-type: square; columns: 5;">
 {% for tag in tags %}
 		<li><a href="/tags#{{ tag | slugify}}">{{ tag }} </a></li>
 {% endfor %}
 </ul>
 </div>
-<div>
+</div>
 	<div>
 
 {% for tag in tags %}

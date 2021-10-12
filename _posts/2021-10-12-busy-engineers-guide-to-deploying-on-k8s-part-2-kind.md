@@ -3,7 +3,7 @@ title: Busy Engineers Guide to Deploying on K8s Part 2 - Kind
 date: 2021-10-12T01:00:00+00:00
 author: Ryan Svihla
 layout: post
-tags: [ kubernete, github, docker ]
+tags: [ kubernetes, github, docker ]
 ---
 
 Post Valid as of October 12, 2021.
@@ -55,3 +55,13 @@ spec:
 * when your nodes are running you can port-forward `kubectl port-forward $( kubectl get pods  -o name | head -n 1) 3000:3000`
 * open your web browser to http://localhost:3000
 <img title="express.png" src="/assets/express.png" border="0" alt="express" />
+
+### What did we do
+
+* We installed the kubectl cli
+* We installed kind
+* Created a GitHub token with read rights to our new package
+* Created a deployment in Kubernetes that deployed the newly pushed package to our local kind instance
+* Used kubectl to make the deployment visible and opened it in a browser
+
+Follow the [next steps here](2021-10-12-busy-engineers-guide-to-deploying-on-k8s-part-3-helm.md)

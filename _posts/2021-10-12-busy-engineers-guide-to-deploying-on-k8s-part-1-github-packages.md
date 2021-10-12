@@ -75,7 +75,7 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD [ "node", "server.js" ]
+CMD [ "npm", "start" ]
 ```
 
 * create a github action `mkdir -p .github/workflows`
@@ -145,7 +145,6 @@ jobs:
 <img title="actions.png" src="/assets/actions.png" border="0" alt="actions" width="600" height="355" />
 * After the image is built you can click on the Packages link
 <img title="packages.png" src="/assets/packages.png" border="0" alt="packages" width="600" height="355" />
-* 
 
 ### What did we do
 
@@ -156,3 +155,5 @@ jobs:
 * We added a GitHub action that pushed the docker file on commit to our GitHub Packages
 * We committed our changes in Git and pushed them up to GitHub
 * We validated the package built and was available in our repository
+
+Follow the [next steps here](2021-10-12-busy-engineers-guide-to-deploying-on-k8s-part-2-kind.md)
