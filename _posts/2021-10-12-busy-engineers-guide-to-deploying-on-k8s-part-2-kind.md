@@ -70,4 +70,4 @@ spec:
 * Created a deployment in Kubernetes that deployed the newly pushed package to our local kind instance
 * Used kubectl to make the deployment visible and opened it in a browser
 
-Follow the [next steps here](2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-3-helm.html)
+Follow the [next steps here](/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-3-helm.html)
