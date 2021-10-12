@@ -35,7 +35,7 @@ A helm "chart" is a series of kubernetes yaml templates with a values.yaml file 
   * change image.repository from nginx to ghcri.io/<YOUR REPO>/app
   * Update the imagePullSecrets to use the regcred secret from the last post. Therefore, remove the [] for imagePullSecrets and below it add -name: regcred
   * Updated service.port from 80 to 3000
-```
+```yaml
 # Default values for myapp.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -225,7 +225,7 @@ EOF
 * wait a couple of minutes
 * edit the values.yaml now to the following values (there is a mountain to go over here so just copy and paste it)
 
-````yaml
+```yaml
 ingress:
   enabled: true
   className: ""
