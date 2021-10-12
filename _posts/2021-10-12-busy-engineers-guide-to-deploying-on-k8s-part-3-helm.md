@@ -199,7 +199,7 @@ spec:
 
 Ok so this portfoward stuff is great and all but not super impressive
 
-* Tear down kind 
+* Tear down kind `helm install mydeploy myapp`
 * create a new cluster with the following command to enable ingress
 
 ```sh
