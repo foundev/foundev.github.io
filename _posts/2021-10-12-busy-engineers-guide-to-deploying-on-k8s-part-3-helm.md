@@ -201,6 +201,7 @@ Ok so this portfoward stuff is great and all but not super impressive
 
 * Tear down kind 
 * create a new cluster with the following command to enable ingress
+
 ```sh
 cat <<EOF | kind create cluster --config=-
 kind: Cluster
@@ -222,6 +223,7 @@ nodes:
     protocol: TCP
 EOF
 ```
+
 * don't forget to reinstall your GitHub Packages secrets 
  user and password to match the token) `kubectl create secret docker-registry regcred --docker-server=ghcr.io --docker-username=<changeme> --docker-password=<changeme>`
 * install nginx ingress `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml`
