@@ -8,6 +8,13 @@ tags: [ kubernetes github, docker ]
 
 Post Valid as of October 12, 2021.
 
+### Busy Engineer's Guide to Deploying On K8s
+
+* [Part 1 - GitHub Packages (this post)](/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-1-github-packages.html)
+* [Part 2 - Kind ](/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-2-kind.html)
+* [Part 3 - Helm](/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-3-helm.html)
+
+
 While trying to take some coworkers through setting up Docker with GitHub Packages I ran some not obvious edges and my boss pointed out
 for new to Docker and new to Kubernetes people these could be totally derailing corners. I have to agree, so this series will take people front to back
 through setting up Kubernetes with the options most readily available to us.
