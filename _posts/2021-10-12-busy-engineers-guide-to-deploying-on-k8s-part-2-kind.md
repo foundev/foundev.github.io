@@ -8,7 +8,7 @@ tags: [ kubernetes, github, docker ]
 
 Post Valid as of October 12, 2021.
 
-This is a continuation from the [last post in the series](2021-10-12-busy-engineers-guide-to-deploying-on-k8s-part-1-github-packages.md). There are three primary ways
+This is a continuation from the [last post in the series](/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-1-github-packages.html). There are three primary ways
 to run Kubernetes locally on a notebook: [Kind](https://kind.sigs.k8s.io), [k3d](https://k3d.io/v5.0.0/), and [Minikube](https://github.com/kubernetes/minikube). I personally far prefer k3d due to it having good defaults to get
 up and running with stateful sets long before the other two and it can create large worker nodes, these have lead to a loyalty to the product. However, my org seems to have standardized on Kind for most of their CI so I will be covering
 that here as it is the easiest for my coworkers to find help and documentation. It is also an excellent product to get started with Kubernetes.

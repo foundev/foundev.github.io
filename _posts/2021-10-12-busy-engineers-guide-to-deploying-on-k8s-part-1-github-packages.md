@@ -156,4 +156,4 @@ jobs:
 * We committed our changes in Git and pushed them up to GitHub
 * We validated the package built and was available in our repository
 
-Follow the [next steps here](2021-10-12-busy-engineers-guide-to-deploying-on-k8s-part-2-kind.md)
+Follow the [next steps here](/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-2-kind.html)

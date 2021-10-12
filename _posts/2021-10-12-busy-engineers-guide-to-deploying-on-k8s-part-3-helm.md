@@ -9,8 +9,8 @@ tags: [ kubernetes, github, docker, helm ]
 Post Valid as of October 12, 2021.
 
 ### Previous Posts - Busy Engineer's Guide to Deploying On K8s
-* [Part 1 -GitHub Packages](2021-10-12-busy-engineers-guide-to-deploying-on-k8s-part-2-kind.md)
-* [Part 2 -Kind ](2021-10-12-busy-engineers-guide-to-deploying-on-k8s-part-2-kind.md)
+* [Part 1 - GitHub Packages](/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-2-kind.html)
+* [Part 2 - Kind ](/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-2-kind.html)
 
 Ok so now that you have Kubernetes installing in a deployment and you can see it with kubectl port-forward how to you get beyond the
 toy stage?
