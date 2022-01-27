@@ -102,18 +102,19 @@ SELECT * FROM my_table WHERE id = 38bea878–3bc9–48ea-9b12–38aefcefb749 AND
 -- |38bea878–3bc9–48ea-9b12–38aefcefb749|2          |0       |9eb3f56a-bf24-11e5-9912-ba0be0483c18|'my data'|
 -- Since we have more than one shard we can now query the other shard
 
-SELECT * FROM my_table WHERE id = 38bea878–3bc9–48ea-9b12–38aefcefb749 AND shard_id = 1;
+SELECT * FROM my_table WHERE id = 38bea878-3bc9-48ea-9b12-38aefcefb749 AND shard_id = 1;
 -- You can just update the count as a separate update as you generate new shards or if you know how many shards you'll end up with before you start ingesting.
-UPDATE my_table set shard_count = 2 WHERE id = 38bea878–3bc9–48ea-9b12–38aefcefb749 AND shard_id = 0
+UPDATE my_table set shard_count = 2 WHERE id = 38bea878-3bc9-48ea-9b12-38aefcefb749 AND shard_id = 0
 -- ingest into a given shard.
 INSERT INTO my_table (id, shard_id, clustering_id, data) VALUES (
-  38bea878–3bc9–48ea-9b12–38aefcefb749, 0, 9eb3f56a-bf24-11e5-9912-ba0be0483c18, 'my data');
+ 38bea878-3bc9-48ea-9b12-38aefcefb749, 0, 9eb3f56a-bf241-11e5-9912-ba0be0483c18, 'my data');
 INSERT INTO my_table (id, shard_id, clustering_id, data) VALUES (
-38bea878–3bc9–48ea-9b12–38aefcefb749, 0 , f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other data');- ingesting into another shard. 
+38bea878–3bc9–48ea-9b12–38aefcefb749, 0 , f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other data');
+-- ingesting into another shard. 
 INSERT INTO my_table (id, shard_id, clustering_id, data) VALUES (
 38bea878–3bc9–48ea-9b12–38aefcefb749, 1, f84532ba-bf24-11e5-9912-ba0be0483c18, 'my shard 2 data');
 INSERT INTO my_table (id, shard_id, clustering_id, data) VALUES (
-38bea878–3bc9–48ea-9b12–38aefcefb749, 1, f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other shard 2 data');
+38bea878-3bc9-48ea-9b12-38aefcefb749, 1, f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other shard 2 data');
 ```
 
 ## Synthetic Sharding Strategy: Known Shard Count
@@ -141,21 +142,21 @@ INSERT INTO my_table (id, shard_id, clustering_id, data) VALUES (
 CREATE TABLE IF NOT EXISTS my_table ( id uuid, shard_id int, clustering_id timeuuid, data text, PRIMARY KEY((id, shard_id), clustering_id));
 -- You always assume there are 5 shards. This is useful when you 
 -- just want to shrink the max partition size down and so you throw every record in a different shard.
-SELECT * FROM my_table WHERE id = 38bea878–3bc9–48ea-9b12–38aefcefb749 AND shard_id = 0;
-SELECT * FROM my_table WHERE id = 38bea878–3bc9–48ea-9b12–38aefcefb749 AND shard_id = 1;
-SELECT * FROM my_table WHERE id = 38bea878–3bc9–48ea-9b12–38aefcefb749 AND shard_id = 2;
-SELECT * FROM my_table WHERE id = 38bea878–3bc9–48ea-9b12–38aefcefb749 AND shard_id = 3;
-SELECT * FROM my_table WHERE id = 38bea878–3bc9–48ea-9b12–38aefcefb749 AND shard_id = 4;
+SELECT * FROM my_table WHERE id = 38bea878-3bc9-48ea-9b12-38aefcefb749 AND shard_id = 0;
+SELECT * FROM my_table WHERE id = 38bea878-3bc9-48ea-9b12-38aefcefb749 AND shard_id = 1;
+SELECT * FROM my_table WHERE id = 38bea878-3bc9-48ea-9b12-38aefcefb749 AND shard_id = 2;
+SELECT * FROM my_table WHERE id = 38bea878-3bc9-48ea-9b12-38aefcefb749 AND shard_id = 3;
+SELECT * FROM my_table WHERE id = 38bea878-3bc9-48ea-9b12-38aefcefb749 AND shard_id = 4;
 -- ingest into a shard.
 INSERT INTO my_table (id, shard_id, clustering_id, data) VALUES (
-38bea878–3bc9–48ea-9b12–38aefcefb749, 0, 9eb3f56a-bf24-11e5-9912-ba0be0483c18, 'my data');
+38bea878-3bc9-48ea-9b12-38aefcefb749, 0, 9eb3f56a-bf24-11e5-9912-ba0be0483c18, 'my data');
 INSERT INTO my_table (id, shard_count, shard_id, clustering_id, data) VALUES (
-38bea878–3bc9–48ea-9b12–38aefcefb749, 0 , f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other data');
+38bea878-3bc9-48ea-9b12-38aefcefb749, 0 , f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other data');
 -- inserting into another shard.
 INSERT INTO my_table (id, shard_count, shard_id, clustering_id, data) VALUES (
-38bea878–3bc9–48ea-9b12–38aefcefb749, 1, f84532ba-bf24-11e5-9912-ba0be0483c18, 'my shard 2 data');
+38bea878-3bc9-48ea-9b12-38aefcefb749, 1, f84532ba-bf24-11e5-9912-ba0be0483c18, 'my shard 2 data');
 INSERT INTO my_table (id, shard_count, shard_id, clustering_id, data) VALUES (
-38bea878–3bc9–48ea-9b12–38aefcefb749,  1, f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other shard 2 data');
+38bea878-3bc9-48ea-9b12-38aefcefb749,  1, f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other shard 2 data');
 ```
  
 ## Appendix: Java Example For Async
@@ -187,7 +188,7 @@ public class CassandraDAO  {
   for(ResultSetFuture future: futures) {
   
     Result result = future.getUninterruptibly();
-    dataResults.add(result.getString(“data”));
+    dataResults.add(result.getString("data"));
   } 
   return dataResults;
 }
