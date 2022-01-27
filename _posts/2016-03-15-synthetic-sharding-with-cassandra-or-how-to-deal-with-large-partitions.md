@@ -107,12 +107,12 @@ SELECT * FROM my_table WHERE id = 38bea878-3bc9-48ea-9b12-38aefcefb749 AND shard
 UPDATE my_table set shard_count = 2 WHERE id = 38bea878-3bc9-48ea-9b12-38aefcefb749 AND shard_id = 0
 -- ingest into a given shard.
 INSERT INTO my_table (id, shard_id, clustering_id, data) VALUES (
- 38bea878-3bc9-48ea-9b12-38aefcefb749, 0, 9eb3f56a-bf241-11e5-9912-ba0be0483c18, 'my data');
+ 38bea878-3bc9-48ea-9b12-38aefcefb749, 0, 9eb3f56a-bf24-11e5-9912-ba0be0483c18, 'my data');
 INSERT INTO my_table (id, shard_id, clustering_id, data) VALUES (
-38bea878–3bc9–48ea-9b12–38aefcefb749, 0 , f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other data');
+38bea878-3bc9-48ea-9b12-38aefcefb749, 0 , f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other data');
 -- ingesting into another shard. 
 INSERT INTO my_table (id, shard_id, clustering_id, data) VALUES (
-38bea878–3bc9–48ea-9b12–38aefcefb749, 1, f84532ba-bf24-11e5-9912-ba0be0483c18, 'my shard 2 data');
+38bea878-3bc9-48ea-9b12-38aefcefb749, 1, f84532ba-bf24-11e5-9912-ba0be0483c18, 'my shard 2 data');
 INSERT INTO my_table (id, shard_id, clustering_id, data) VALUES (
 38bea878-3bc9-48ea-9b12-38aefcefb749, 1, f84532ba-bf24-11e5-9912-ba0be0483c18, 'my other shard 2 data');
 ```
