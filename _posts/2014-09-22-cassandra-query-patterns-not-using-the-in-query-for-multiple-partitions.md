@@ -7,23 +7,31 @@ layout: post
 wordpress_guid: http://lostechies.com/ryansvihla/?p=147
 dsq_thread_id:
   - "3044587475"
-categories:
-  - Cassandra
+tags:
+  - cassandra
+  - data modeling
 ---
 So lets say you’re doing you’re best to data model all around one partition. You’ve done your homework and all you queries look like this:
 
+```sql
     SELECT * FROM my_keyspace.users where id = 1
+```
     
 
 Over time as features are added however, you make some tradeoffs and need to start doing queries across partitions. At first there are only a few queries like this.
 
+```sql
     SELECT * FROM my_keyspace.users where id in (1,2,3,4)
+```
     
 
 You’re cluster is well tuned so you have no problems, but as time goes on your dataset increases and users are doing bigger searches across more users.
 
-    SELECT * FROM my_keyspace.users where id in
+```sql
+
+SELECT * FROM my_keyspace.users where id in
     (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23)
+```
     
 
 Now you start seeing GC pauses and heap pressure that leads to overall slower performance, your queries are coming back in what happened?
@@ -40,6 +48,8 @@ This means a dead coordinator node means the entire query result is gone. Instea
 
 In Java
 
+```java
+
     PreparedStatement statement = session.prepare(
       "SELECT * FROM tester.users where id = ?");
     List<ResultSetFuture> futures = new ArrayList<>();
@@ -54,9 +64,11 @@ In Java
      results.add(row.getString("name"));
     }
     return results;
-    
+```
 
 In C#
+
+```csharp
 
     PreparedStatement statement = session.Prepare("SELECT * FROM tester.users where id = ?");
     List<String> names = new List<String>();
@@ -73,7 +85,7 @@ In C#
     
     }
     return names;
-    
+``` 
 
 Now doing a retry requires only one small fast query, you’ve eliminated the single point of failure.
 
