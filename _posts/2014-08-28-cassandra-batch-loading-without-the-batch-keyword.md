@@ -72,4 +72,4 @@ This obviously puts a fair a amount of work on the coordinator node and cluster 
 
 I’m sure about now you’re wondering what the fastest way to load data is, allow the distributed nature of Cassandra to work for you and distribute the writes to the optimal destination. The following code will lead to not only the fastest loads (assuming different partitions are being updated), but it’ll cause the least load on the cluster. If you add retry logic you’ll only retry that one mutation while the rest are fired off.
 
-For code samples go [read the article I mentioned above.](https://lostechies.com/ryansvihla/?p=334)
+For code samples go [read the article I mentioned above.](https://blog.foundev.pro/2016/04/29/cassandra-batch-loading-without-the-batch-the-nuanced-edition.html)
