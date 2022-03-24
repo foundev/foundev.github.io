@@ -12,7 +12,7 @@ For some reason finding this information is dreadfully stupidly hard and I final
 There are three ways that I know of (I am sure there is a JMX way I just do not happen to know it atm)
 
 1. via curl (and using jq but grep will suffice)  `curl "http://localhost:8983/solr/admin/cores?action=STATUS&wt=json&indent=true"  | jq '.status."mykeyspace.mytable".index.size'`
-2. via ls and awk (assuming no du is available as is the case in the dse docker image) ls -A -R -g -o "$@" /var/lib/cassandra/data/solr.data/mykeyspace.mytable/index | awk '{n1 += $3} END {print n1}' | awk '{ byte =$1 /1024/1024; print byte " MB" }' 
+2. via ls and awk (assuming no du is available as is the case in the dse docker image) `ls -A -R -g -o "$@" /var/lib/cassandra/data/solr.data/mykeyspace.mytable/index | awk '{n1 += $3} END {print n1}' | awk '{ byte =$1 /1024/1024; print byte " MB" }'` 
 3. via the solradmin and just eyeballing the per segment sizes http://localhost:8983/solr/#/mykeyspace.mytable/segments
 
 
