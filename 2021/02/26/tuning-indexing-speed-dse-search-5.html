@@ -35,10 +35,10 @@ However, there is one nasty bug that affects 5.1.x where stale data may stick ar
 The users may complain about matching records on DSE Search that do not match the actual data found. An example of this follows:
 ```
 SELECT * from my_table where solr_query='{"q":"status:processed"}'</p>
-<p>-- [id] | [status]
+-- [id] | [status]
 --  1   | processed
 --- 2   | completed
-<code>``
+```
 This behavior is easy to explain, the Solr index updates AFTER Cassandra is already updated, so there are periods Cassandra and Solr will potentially be out of sync. Since this is the reality, the fixes for this can be challenging:
 * Data modeling and or application design changes
 * However, if index lag is taking longer than</code>autoCommitTime`, consider all the steps above in the "Dropped Mutations" section as this may be a throughput issue.</p>
