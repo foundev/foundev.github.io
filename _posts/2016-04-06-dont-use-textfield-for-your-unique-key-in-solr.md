@@ -1,7 +1,7 @@
 ---
-title: Don’t use TextField for your unique key in Solr
 layout: post
 ---
+<h1>Don’t use TextField for your unique key in Solr</h1>
 <div>
   <p id="651b">
     This seems immediately obvious when you think about it, but TextField is what you use for fuzzy searches in Solr, and why would a person want a fuzzy search on a unique value? While I can come up with some oddball use cases, making use of copy fields would seem to be the more valid approach and fitting with the typical use of Solr IE you filter on strings and query on text.

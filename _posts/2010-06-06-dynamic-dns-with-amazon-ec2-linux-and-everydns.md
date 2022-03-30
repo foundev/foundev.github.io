@@ -1,6 +1,5 @@
 ---
 wordpress_id: 41
-title: Dynamic DNS with Amazon EC2 Linux and EveryDNS
 date: 2010-06-06T18:02:32+00:00
 author: Ryan Svihla
 layout: post
@@ -11,6 +10,7 @@ tags:
   - EC2
 redirect_from: "/blogs/rssvihla/archive/2010/06/06/dynamic-dns-with-amazon-ec2-linux-and-everydns.aspx/"
 ---
+<h1>Dynamic DNS with Amazon EC2 Linux and EveryDNS</h1>
 So I finally sat down and did the math and found out Amazon EC2 was quite a bit cheaper than what I’d been paying for hosting as long as I was willing to prepay for at least a year.&#160; However, with EC2 you are getting a dynamic ip’s so what to do? Well I’ve been using EveryDNS for years for my dns hosting and despite it’s recent acquisition by Dyn, Inc it’s still works the same. The scripts that are described below can be downloaded <a href="http://unstabletransit.com/blogfiles/dyndns.tgz" target="_blank">here</a>, what follows is a brief walkthrough.
 
   1. Download EveryDns update script from <http://www.everydns.com/dynamic.php>&#160; and place it in something like /usr/local/bin. 

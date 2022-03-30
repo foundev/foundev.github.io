@@ -1,7 +1,7 @@
 ---
-title: Newbie Win32 Development Using Python
 layout: post
 ---
+<h1>Newbie Win32 Development Using Python</h1>
 First a disclaimer. I’m not in anyway shape or form an experienced win32 systems programmer.&#160; I’ve always done application development or systems administration scripting. That in-between area where you get out your C/C++ compiler and start dealing with pointers is completely alien to me.&#160; This has created problems in the past when I need to do something outside of the scope of C# and found myself staring at MSDN docs in C trying to extrapolate the equivalent C# code, and typically being disgusted at having to use hand rolled Structs with calls to Marshall.GetLastWin32Error().
 
 Worse still I end up with a nasty implementation that requires slow, fragile integration tests to verify behavior or very verbose mirror interfaces where I’m testing order of calls. Look at the following code sample to read a reparse point’s target directory from <a href="http://www.codeproject.com/KB/vista/Windows_Vista.aspx" target="_blank">code project</a>:

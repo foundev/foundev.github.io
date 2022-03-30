@@ -1,7 +1,7 @@
 ---
-title: Synthetic Sharding with Cassandra. Or How To Deal With Large Partitions.
 layout: post
 ---
+<h1>Synthetic Sharding with Cassandra. Or How To Deal With Large Partitions.</h1>
 Extremely overdue that I write this down as it’s a common problem, and really applies to any database that needs to scale horizontally, not just Cassandra.
  
 ## Problem Statement

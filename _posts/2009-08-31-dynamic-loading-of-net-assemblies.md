@@ -1,7 +1,7 @@
 ---
-title: Dynamic Loading of .Net Assemblies
 layout: post
 ---
+<h1>Dynamic Loading of .Net Assemblies</h1>
 Problem: You have dependencies which can be in a number of directories outside of the directory your app is running in. DotNet AppDomains are heavy to say the least and very high in ceremony.&#160; You do not want to deal with secondary app domain creation.
 
 Solution: Override&#160; AssemblyResolve event on your current app domain.

@@ -1,3 +1,4 @@
+---
 # Creating a Spark cluster with Cass Operator
 
 This is not officially supported as of June 8, 2021 but I am including it anyway since it is not obvious and documented anywhere. There are cases where for some POC or simple
@@ -67,3 +68,6 @@ Using the yaml above run the following command.
 ```bash
 kubectl create -f spark.yaml -n dse-clusters
 ```
+
+---
+

@@ -1,11 +1,11 @@
 ---
-title: 'Surprise Go is ok for me now'
 date: 2018-12-13T20:23:00+00:00
 author: Ryan Svihla
 layout: post
 tags:
   - go
 ---
+<h1>Surprise Go is ok for me now</h1>
 
 *EDIT: this is an old post [from my old blog](https://lostechies.com/ryansvihla/2018/12/13/surprise-go-is-ok/) I have updated it here and ported it over here for archival reasons.*
 

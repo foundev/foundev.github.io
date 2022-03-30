@@ -1,7 +1,7 @@
 ---
-title: Focused and Narrow; Superficial and Broad
 layout: post
 ---
+<h1>Focused and Narrow; Superficial and Broad</h1>
 In my 20&#8217;s I got exposed to a large variety of work situations and was able to succeed in a variety of technical fields (admin, developer, hardware tech, etc). I had the time back then to not have to choose which direction I went with things, I went broad but deep into each field I was interested in. Every couple of years I&#8217;d go head long into another field and read dozen books, setup labs experiment like crazy, use whatever connections I&#8217;d made to get my foot in the door somewhere and then make sure I delivered in big ways, and most importantly keep reviewing what I&#8217;d done in the past to make sure it actually did work and did work well.
 
 This obsessive learning habit had a great side effect, as long as I stuck to slightly related fields I learned exponentially more. Learning about networking made helping customers with a variety of issues far easier when I was just a lowly computer tech.&nbsp; When I was trying to automate customer installations in a repeatable way, learning software development even at a trivial level made things possible that were not otherwise.&nbsp; I got to see how everythign interconnected.

@@ -1,7 +1,7 @@
 ---
-title: 'Cassandra &#038; Rails: Cequel Batch Support'
 layout: post
 ---
+<h1>Cassandra &#038; Rails: Cequel Batch Support</h1>
 Cassandra On Rails using Cequel Atomic Batch Support When I first tried to use Cassandra with Rails over a year ago the lack of a good native (IE not thrift) driver and a good mapper was a show stopper for the project I was on. Today the situation has improved markedly with the cql-rb driver proving stable in usage, and the excellent Cequel ActiveModel capable library switching to use cql-rb.
 
 I’d like to cover a common use case that’s not been handled by ORM style mapping libraries very well, atomic batches. Cequel has support for this even though you have to hunt a bit for it and it works well. Consider the following scenario, you’ve got 2 related tables, and you want one to update when the other one changes.

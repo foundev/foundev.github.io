@@ -1,11 +1,11 @@
 ---
-title: 'MVP how minimal'
 date: 2018-12-20T20:00:00+00:00
 author: Ryan Svihla
 layout: post
 tags:
   - Software
 ---
+<h1>MVP how minimal</h1>
 MVPs or Minimum Viable Products are pretty contentious ideas for something seemingly simple. Depending on background and where pepole are coming from experience wise those terms carry radically different ideas.
 In recent history I've seen up close two extreme constrasting examples of MVP:
 

@@ -1,7 +1,7 @@
 ---
-title: Lessons From My First Attempt At Bringing Agile Into A Non-Agile shop.
 layout: post
 ---
+<h1>Lessons From My First Attempt At Bringing Agile Into A Non-Agile shop.</h1>
 Since I’m moving on from my current employer I figure now is a great time to share my post-mortem of my time there, specifically what worked, what didn’t and what did I learn.
 
 ### 

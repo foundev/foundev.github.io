@@ -1,7 +1,7 @@
 ---
-title: 'Introducing SpecMaker “Rspec style” BDD in C#'
 layout: post
 ---
+<h1>Introducing SpecMaker “Rspec style” BDD in C#</h1>
 So I&rsquo;m certain this will be met with mixed response, because really .Net already has several decent BDD frameworks and many of you will chastise me for adding yet another framework when really BDD has nothing to do with what testing framework you use.&nbsp; So why you ask?
 
   1. Most of the BDD frameworks I&rsquo;ve looked at are Acceptance style and trying to make stories into executable code (NBehave, StoryTeller, Fitnesse.Net ,Acceptance, etc).&nbsp; I want something that describes to other developers in a behavior centric way what my code is doing (like RSpec&rsquo;s default DSL does).&nbsp; This is not aimed at business analysts.

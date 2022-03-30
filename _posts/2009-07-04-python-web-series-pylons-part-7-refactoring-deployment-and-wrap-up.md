@@ -1,7 +1,7 @@
 ---
-title: 'Python Web Framework Series – Pylons: Part 7 Refactoring Deployment and Wrap up'
 layout: post
 ---
+<h1>Python Web Framework Series – Pylons: Part 7 Refactoring Deployment and Wrap up</h1>
 Lets take a look at our existing site and what we can do to clean it up and add some badly needed functionality, however that is beyond the scope of my series. So I&rsquo;m going to leave some hints for the remaining functionality to get you started.
 
 ### Refactoring Ideas

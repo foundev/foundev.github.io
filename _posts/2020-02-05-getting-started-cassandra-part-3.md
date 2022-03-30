@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Starting Cassandra - Data modeling in the brief
 tags: [ cassandra ]
 ---
+<h1>Starting Cassandra - Data modeling in the brief</h1>
 
 Cassandra data modeling isn't really something you can do "in the brief" and is itself a subject that can take years to fully grasp, but this should be a good starting point.
 

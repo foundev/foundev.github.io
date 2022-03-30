@@ -1,7 +1,7 @@
 ---
-title: Connection to Oracle From Spark
 layout: post
 ---
+<h1>Connection to Oracle From Spark</h1>
 <p id="9b2b">
   For some silly reason there is a has been a fair amount of difficulty in reading and writing to Oracle from Spark when using DataFrames.
 </p>

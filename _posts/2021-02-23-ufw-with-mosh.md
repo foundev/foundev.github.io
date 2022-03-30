@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Configuring UFW with Mosh support 
 tags: [mosh, ufw]
 ---
+<h1>Configuring UFW with Mosh support</h1>
 
 [Mosh](https://blink.sh/) is kind of my secret weapon for working remotely but getting it configured to be allowed through the firewall is something I always seem to forget. So here is my
 UFW script I use for new servers with mosh added in:

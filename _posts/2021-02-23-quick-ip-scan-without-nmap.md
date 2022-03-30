@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Quick IP scan without nmap
 tags: [python]
 ---
+<h1>Quick IP scan without nmap</h1>
 
 So nmap isn't always available to figure out what devices are up on your local network or where they may have moved too after you installed that new router but python is usually around.
 This script will ping your local network for ip addresses. It is as basic as you can get and does not work on Windows. Some day I would like to make a better version of this, when I do, I will

@@ -1,6 +1,5 @@
 ---
 wordpress_id: 46
-title: 'Anti-Pattern: Too much of your application is about interacting with external resources'
 date: 2010-07-16T02:24:00+00:00
 author: Ryan Svihla
 layout: post
@@ -11,6 +10,7 @@ tags:
   - Anti-Patterns
 redirect_from: "/blogs/rssvihla/archive/2010/07/15/anti-pattern-too-much-of-your-application-is-about-interacting-with-external-resources.aspx/"
 ---
+<h1>Anti-Pattern: Too much of your application is about interacting with external resources</h1>
 Firstly, what am I talking about? Applications that meet some of the following descriptions:
 
   1. Stored procedures with a fair amount of conditional logic or complicated business rules buried in a sub-query (some would argue sprocs at all).

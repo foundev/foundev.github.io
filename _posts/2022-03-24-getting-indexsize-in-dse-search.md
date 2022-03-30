@@ -1,10 +1,10 @@
 ---
-title: Getting Index Size in DSE Search
 date: 2022-03-24T02:00:00+00:00
 author: Ryan Svihla
 layout: post
 tags: [ dse, search, solr ]
 ---
+<h1>Getting Index Size in DSE Search</h1>
 
 Applies to DSE Search versions 3.2 to 6.8 
 

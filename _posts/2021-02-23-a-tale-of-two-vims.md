@@ -1,8 +1,8 @@
 ---
 layout: post
-title: A Tale of Two Vims
 tags: [ vimrc, vim ]
 ---
+<h1>A Tale of Two Vims</h1>
 
 I have two primary vim onfigurations depending on what I am feeling. I have my "everything is modern" configuration that I will bring out if I need to get a lot of work done. Which is below.
 This has autocomplete, nice dark theme, git integration, airline like, nerdtree, ctrlp, and with COC it has strong support for nearly every language. It is like running VSCode in the terminal, works fantastique.

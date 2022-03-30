@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Apache NiFi and Cassandra
 tags: [cassandra, nifi]
 ---
+<h1>Apache NiFi and Cassandra</h1>
 
 Looked at Apache NiFi for the first time in a long time as someone didn't know if it had support for stored procedures or not. I looked up the latest source
 and sure enough I see no stored procedures used for any of the statements. Looking at the [PutCassandraRecord.java](https://github.com/apache/nifi/blob/953327cdf587c6b68765c0d32508873d8a0031e7/nifi-nar-bundles/nifi-cassandra-bundle/nifi-cassandra-processors/src/main/java/org/apache/nifi/processors/cassandra/PutCassandraRecord.java) I see inserts and updates are just statements that are never prepared:

@@ -1,10 +1,10 @@
 ---
-title: Busy Engineers Guide to Deploying on K8s Part 3 - Helm
 date: 2021-10-12T02:00:00+00:00
 author: Ryan Svihla
 layout: post
 tags: [ kubernetes, github, docker, helm ]
 ---
+<h1>Busy Engineers Guide to Deploying on K8s Part 3 - Helm</h1>
 
 Post Valid as of October 12, 2021.
 

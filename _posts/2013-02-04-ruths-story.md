@@ -1,5 +1,4 @@
 ---
-title: "Ruth's Story"
 date: 2013-02-04T06:28:45+00:00
 author: Ryan Svihla
 layout: post
@@ -8,6 +7,7 @@ dsq_thread_id:
 tags:
   - personal
 ---
+<h1>"Ruth's Story"</h1>
 Ruth Ann Svihla came into this world screaming and angry on October 30 2011 at 6:57 am. She was and has always been a beautiful, intelligent child that brought us a great deal of joy, but she was born with many challenges to overcome.
 
 ## Cleft

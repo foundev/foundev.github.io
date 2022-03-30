@@ -1,10 +1,10 @@
 ---
-title: Castle ActiveRecord and registering classes at runtime
 date: 2009-06-03T06:02:00+00:00
 author: Ryan Svihla
 layout: post
 tags: [csharp]
 ---
+<h1>Castle ActiveRecord and registering classes at runtime</h1>
 *EDIT: this is an old post copied over from my [old blog on Los Techies](https://lostechies.com/ryansvihla/2009/06/03/castle-activerecord-and-registering-classes-at-runtime/), I have kept it here for archival reasons.*
 
 I use the following trick for adding ActiveRecord classes after the fact for our in-house plug-in architecture. Thanks to whichever blogger/mailing list I picked this up from so long ago.

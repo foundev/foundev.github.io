@@ -1,7 +1,7 @@
 ---
-title: Come see my Boo talk at Alamo Coders on the 14th
 layout: post
 ---
+<h1>Come see my Boo talk at Alamo Coders on the 14th</h1>
 UPDATE: added links for video, slides and source
 
 **S****ubject:**&nbsp;Boo: The Extensible Little Language On The CLR You&#8217;ve Never Heard Of.

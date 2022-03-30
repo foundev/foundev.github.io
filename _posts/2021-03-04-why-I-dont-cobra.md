@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Why I Don't Cobra
 tags: [astra, go]
 ---
+<h1>Why I Don't Cobra</h1>
 
 So I just implemented this [DataStax Astra CLI](https://github.com/rsds143/astra-cli) interface and it has gotten some attention where I work. One of the developers
 who had worked on a similar tool had suggested I use cobra to build a command line interface.

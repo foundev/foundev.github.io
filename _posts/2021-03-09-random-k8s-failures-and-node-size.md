@@ -1,7 +1,7 @@
 ---
-title: Random Kubernetes Failures and Node Size
 tags: [ kubernetes ]
 ---
+<h1>Random Kubernetes Failures and Node Size</h1>
 I had a report of ingress failing on traefik randomly during a test job and since it worked on a local workstation the belief was it had to be a problem with traefik. I looked at the logs and asked them to spin up bigger nodes for the test and it fixed things.
 
 The reason the beefier machines come into play are varied but ultimately come down to "no free lunch". It all started with these log entries in traefik:

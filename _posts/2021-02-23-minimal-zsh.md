@@ -1,8 +1,8 @@
 ---
 layout: post
-title: minimal zsh prompt that is useful
 tags: [ zsh ]
 ---
+<h1>minimal zsh prompt that is useful</h1>
 So oh-my-zsh is great but I like to do as much as I can on my own So I came up with a basic zsh prompt that gives me enough 
 information to know what server I am on and what directory I am in (also git branch)
 

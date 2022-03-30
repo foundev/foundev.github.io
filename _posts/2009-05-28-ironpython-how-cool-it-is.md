@@ -1,10 +1,10 @@
 ---
-title: IronPython how cool it is
 date: 2009-05-28T05:08:00+00:00
 author: Ryan Svihla
 layout: post
 tags: [python, csharp]
 ---
+<h1>IronPython how cool it is</h1>
 *EDIT: this is an old post copied over from my [old blog on Los Techies](https://lostechies.com/ryansvihla/2009/05/28/ironpython-how-cool-it-is/), I have kept it here for archival reasons.*
 
 Briefly, [IronPython](http://www.codeplex.com/IronPython) is an implementation of Python in the .Net runtime. This allows you access to .Net framework goodness while programming in a dynamic language. The current stable version 2.0.1 maps to CPython 2.5.This allows me to do fun fun things like use my python project to access a c# project. follows is a python script using Pinsor and accessing a .net dll.

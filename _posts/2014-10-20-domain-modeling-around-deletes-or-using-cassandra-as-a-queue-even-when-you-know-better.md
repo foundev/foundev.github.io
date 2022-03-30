@@ -1,7 +1,7 @@
 ---
-title: 'Domain Modeling Around Deletes or &#8220;Using Cassandra as a queue even when you know better&#8221;'
 layout: post
 ---
+<h1>Domain Modeling Around Deletes or &#8220;Using Cassandra as a queue even when you know better&#8221;</h1>
 # Understanding Deletes
 
 Delete heavy workloads have a number of pretty serious issues when it comes to using a distributed database. Unfortunately one of the most common delete heavy workloads and the most common desired use case for Cassandra is to use it as a global queue. This blog post is aimed at addressing the queue anti-pattern primarily, but could be modeled for other delete heavy use cases.

@@ -1,10 +1,10 @@
 ---
-title: 'Hudson CI Server: setting up remote slaves AND restrictive security together'
 layout: post
 tags:
   - CI
   - Hudson
 ---
+<h1>Hudson CI Server: setting up remote slaves AND restrictive security together</h1>
 ### <font color="#ff0000">NOTE: this applies to Hudson version 1.352</font>
 
 Ok so yesterday I was setting up a publicly accessible build server, that was not to be viewable to anonymous sources. So I configured Hudson to “matrix security” and disallowed all access to anonymous see fig 1-1.However, once I did this my slaves stopped working entirely.&#160; Now I could have allowed some anonymous access but here was the long sought for trick.

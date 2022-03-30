@@ -1,7 +1,7 @@
 ---
-title: Tuning Indexing Speed in DSE Search 5.x
 tags: [dse, solr]
 ---
+<h1>Tuning Indexing Speed in DSE Search 5.x</h1>
 What follows is a summary of the things you need to consider dealing with indexing speed problems in DSE 5.x (note the model of indexing is wildly different in DSE 6.x and will not apply, I will have a guide on that soon).
 
 ## Dropped Mutations

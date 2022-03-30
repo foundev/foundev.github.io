@@ -1,6 +1,5 @@
 ---
 wordpress_id: 17
-title: "Python Web Framework Series – Pylons: Part 4 Introduction For Database Support With SQL Alchemy"
 date: 2009-06-29T02:54:00+00:00
 author: Ryan Svihla
 layout: post
@@ -9,6 +8,7 @@ dsq_thread_id:
  tags:
   - python
 ---
+<h1>"Python Web Framework Series – Pylons: Part 4 Introduction For Database Support With SQL Alchemy"</h1>
 We last left off with <a href="/2009/06/25/python-web-framework-series-pylons-part-3-views-with-mako.html" target="_blank">Views with Mako</a>, now Pylons does not enforce on you an ORM at all, so you can use hand crafted SQL if you prefer. However, since I&rsquo;ve done enough of that for a career or two we&rsquo;re going to use my Python ORM of choice and the preferred one for Pylons SQLAlchemy. 
 
 ### Where does SQLAlchemy fit in as an ORM?

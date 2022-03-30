@@ -1,7 +1,7 @@
 ---
-title: 'Discussion: Mentoring, Knowledge Transfer and Different Styles Of Learning'
 layout: post
 ---
+<h1>Discussion: Mentoring, Knowledge Transfer and Different Styles Of Learning</h1>
 I&rsquo;ve been very fortunate that for most of my adult life, even before I got into tech I&rsquo;ve been &ldquo;the boss&rdquo;, and had gobs of mentoring opportunities. I enjoy it and more importantly I know I will have a greater effect for my company&#8217;s growth through teaching than I would by solely focusing on my advancement.
 
 My students have been visual learners, &ldquo;doing&rdquo; learners, audio learners, those that learn by rote memorization with photographic memories, &ldquo;theorists&rdquo; that are fascinated by the theory of things far more than the practice, and those that can&rsquo;t memorize anything unless they see an entire system in place. Each type or combination needs to have information presented in different ways.

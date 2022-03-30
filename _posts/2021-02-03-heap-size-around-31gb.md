@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Heap Size Around 32 GB 
 tags: [java, cassandra, gc]
 ---
+<h1>Heap Size Around 32 GB</h1>
 note: originally written Feb 3 2021
 
 There was a question this morning around a pretty common discussion point around 31 gb versus 32 gb of heap. This [article discusses this in more detail](http://java-performance.info/over-32g-heap-java/), the key point follows:

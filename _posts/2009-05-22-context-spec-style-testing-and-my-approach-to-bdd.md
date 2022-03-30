@@ -1,10 +1,10 @@
 ---
-title: Context and Spec style testing and my approach to BDD
 date: 2009-05-22T00:21:00+00:00
 author: Ryan Svihla
 layout: post
 tags: [csharp, testing]
 ---
+<h1>Context and Spec style testing and my approach to BDD</h1>
 *EDIT: this is an old post copied over from my [old blog on Los Techies](https://lostechies.com/ryansvihla/2009/05/22/context-spec-style-testing-and-my-approach-to-bdd/), I have kept it here for archival reasons.*
 
 

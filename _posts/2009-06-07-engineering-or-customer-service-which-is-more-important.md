@@ -1,11 +1,11 @@
 ---
-title: Engineering or Customer Service which is more important?
 date: 2009-06-07T19:16:00+00:00
 author: Ryan Svihla
 layout: post
 tags:
   - lean
 ---
+<h1>Engineering or Customer Service which is more important?</h1>
 I've been reading a lot about lean/toyota way lately, mixing that with my past experience as an IT Consultant and throwing that up against a bit of an Ivory tower I fell into with XP that left me unable to deal with the following scenario:
 
 _You're reviewing code either yours or someone elses right before release. you find the code strewn with anti-patterns and unnecessary conditionals. You are due to ship tomorrow. The code works but is not maintainable, do you ship?_

@@ -1,7 +1,7 @@
 ---
-title: Simple BDD/TDD
 layout: post
 ---
+<h1>Simple BDD/TDD</h1>
 Todays theory is **most tests and specs should be very short (2-3 lines), have at most a setup for context establishment, avoid the majority of test framework features as they should be used as an exception and not as a rule.**&nbsp; Note: I practice BDD nowadays and do not like using the term &#8220;test&#8221;, but these rules apply for BDD as well as TDD, and I imagine most of you practice TDD so I&#8217;ll be using primarily TDD terminology.
 
 If you look at my first attempts at TDD they are very similar to my current BDD work with only changes in language. But the contexts, conditions and tests are similar. Most importantly they&#8217;re easy to read. They&#8217;re all very short, very descriptive, make limited use of arguments in the NUnit Attributes, and make very limited use of mocking.

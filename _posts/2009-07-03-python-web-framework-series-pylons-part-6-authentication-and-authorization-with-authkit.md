@@ -1,7 +1,7 @@
 ---
-title: 'Python Web Framework Series – Pylons: Part 6 Basic Authorization With AuthKit'
 layout: post
 ---
+<h1>Python Web Framework Series – Pylons: Part 6 Basic Authorization With AuthKit</h1>
 Last post we left off with very basic database access, and testing story completed. Now we&#8217;re going to look at basic Authorization and Authentication with AuthKit. NOTE: most of this post is just an aggregation of a couple of chapters in the [Pylons Book](http://pylonsbook.com/en/1.0/simplesite-tutorial-part-3.html) since this setup is a good base starting point. Read the previous link to the Pylons Book for more in depth coverage of this topic.&nbsp; 
 
 ### Setting Up AuthKit

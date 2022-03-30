@@ -1,10 +1,10 @@
 ---
-title: Spark job that writes to Cassandra just hangs when one node goes down?
 layout: post
 tags:
   - Cassandra
   - Spark
 ---
+<h1>Spark job that writes to Cassandra just hangs when one node goes down?</h1>
 ### <span style="font-size: 16px;">So this was hyper obvious once I saw the executor logs and the database schema, but this had me befuddled at first and the change in behavior with one node should have made it obvious.</span> {#23da}
 
 <p id="f2c8">

@@ -1,10 +1,10 @@
 ---
-title: Python Web Framework Series
 date: 2009-06-22T13:31:00+00:00
 author: Ryan Svihla
 layout: post
 tags: [python]
 ---
+<h1>Python Web Framework Series</h1>
 I've wanted to dive more in depth into Python's web frameworks for some time and get to know them the way I know Castle Monorail.
 
 What better way to learn something in depth than to have to know it well enough to show to someone else.Therefore, I plan on posting a relatively in depth walkthrough of Pylons (and if the interest is there Django and Turbogears as well). 

@@ -1,10 +1,10 @@
 ---
-title: Detecting and dealing with backpressure in DSE 6.x
 date: 2021-07-28T08:11:00+00:00
 author: Ryan Svihla
 layout: post
 tags: [ dse, backpressure, DataStax ]
 ---
+<h1>Detecting and dealing with backpressure in DSE 6.x</h1>
 
 Several years ago DataStax change DataStax Enterprise from a version of Cassandra with some closed source plugins and a handful of fixes most of which were backports of
 fixes in very old versions, to [a fundamentally different architecture](https://www.datastax.com/blog/dse-advanced-performance-apache-cassandratm-goes-turbo). This new architecure we will

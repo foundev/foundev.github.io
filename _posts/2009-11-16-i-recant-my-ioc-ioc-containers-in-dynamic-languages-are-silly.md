@@ -1,7 +1,7 @@
 ---
-title: I recant my IoC! IoC containers in dynamic languages are silly.
 layout: post
 ---
+<h1>I recant my IoC! IoC containers in dynamic languages are silly.</h1>
 After a year or so of solid Alt Dot Net infection (as far as infections go its a pretty awesome one to have), I decided to give Python a try again for more than one off sysadmin tasks, and to actually dive into it as a newly minted “Agilista”.&#160; 
 
 However, I had&#160; a problem..there were no non-painful IoC containers in Python (sorry to the other authors of IoC frameworks in Python like Spring Python and Snake Guice, I know you try and I respect the effort).&#160; Ultimately, I could <u>**not**</u>&#160; imagine coding anymore without something to handle all my registration for me, that’d dynamically inject in my dependencies, give me hooks for contextual resolution, and give me rich interception support.

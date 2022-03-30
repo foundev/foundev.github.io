@@ -1,7 +1,7 @@
 ---
-title: Windsor style convention over configuration in StructureMap
 layout: post
 ---
+<h1>Windsor style convention over configuration in StructureMap</h1>
 So I was trying to get my&#160; BDD project <a href="https://github.com/rssvihla/specmaker/tree/master" target="_blank">SpecMaker</a> working on Mono only to find out&#160; my usual IoC container of choice <a href="http://www.castleproject.org/container/index.html" target="_blank">Castle Windsor</a> does not play nice.&#160; <a href="http://structuremap.sourceforge.net/Default.htm" target="_blank">StructureMap</a> I’ve heard plays nice in Mono, and I know a bunch of people that use it, so I gave it a whirl.
 
 My original Windsor configuration looked something like this:

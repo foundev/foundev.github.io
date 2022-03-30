@@ -1,7 +1,7 @@
 ---
-title: Cassandra’s “Repair” Should Be Called “Required Maintenance”
 layout: post
 ---
+<h1>Cassandra’s “Repair” Should Be Called “Required Maintenance”</h1>
 <p id="f577">
   <span style="font-size: 16px;">One of the bigger challenges when you go Eventually Consistent is how to reconcile data not being replicated. This happens if your using Oracle and multi-data centers with tech like Golden Gate and it happens if you’re using async replicas with MySQL and one of your replicas got out of whack. You need a way to “repair” the lost data.</span>
 </p>

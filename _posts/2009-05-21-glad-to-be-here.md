@@ -1,9 +1,9 @@
 ---
-title: Glad to be here
 date: 2009-05-21T22:02:14+00:00
 author: Ryan Svihla
 layout: post
 ---
+<h1>Glad to be here</h1>
 
 *EDIT: this is an old post copied over from my [old blog on Los Techies](https://lostechies.com/ryansvihla/2009/05/21/glad-to-be-here/), I have kept it here for archival reasons. The contact info and links below are almost certainly no longer accurate*
 

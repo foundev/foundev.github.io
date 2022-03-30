@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Snakeyaml error handling is tough"
 date: 2019-12-27 09:30:00 -6000
 tags: [ cassandra, java, debugging ]
 ---
+<h1>"Snakeyaml error handling is tough"</h1>
 
 Cassandra for years has relied on snakeyaml to parse configuration files, and it does a fine job, really not a lot of complaints. Until one day a colleague of mine discovered an issue where a permission issue incorrectly reported as an invalid yaml file (complete with the supposedly offending key). Digging into the source code and trying to match up the message. I found that [we were handling YAMLException](https://github.com/apache/cassandra/blob/06209037ea56b5a2a49615a99f1542d6ea1b2947/src/java/org/apache/cassandra/config/YamlConfigurationLoader.java#L128)
 

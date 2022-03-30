@@ -1,11 +1,11 @@
 ---
-title: "Python Web Framework Series – Pylons: Part 2 Controllers, Views and Testing"
 date: 2009-06-24T13:22:00+00:00
 author: Ryan Svihla
 layout: post
 tags:
   - python
 ---
+<h1>"Python Web Framework Series – Pylons: Part 2 Controllers, Views and Testing"</h1>
 We last left off with <a target="_blank" href="/2009/06/23/python-web-framework-series-pylons-part-1-getting-started.html">Getting Started</a> and having created our &ldquo;pylonsforum&rdquo; project and generated our first controller.
 
 Source for home.py

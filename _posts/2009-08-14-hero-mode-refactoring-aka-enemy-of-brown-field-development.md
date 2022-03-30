@@ -1,7 +1,7 @@
 ---
-title: “Hero Mode Refactoring” AKA Enemy Of Brown Field Development
 layout: post
 ---
+<h1>“Hero Mode Refactoring” AKA Enemy Of Brown Field Development</h1>
 What do I mean by “Hero Mode Refactoring”?&#160; We’ve all worked with code that wasn’t easily made testable. Most of the time we see a big ball of mud and have no idea where to begin. Sometimes however we have an epiphany, a \_great\_idea_ , a “cold fusion” moment (that ends up being poignant in so many ways).&#160; 
 
 Filled with the excitement of our vision we dive head long into our work, replacing concrete classes with interfaces, removing big swaths of redundant code, and in general making changes you should only make with a an already unit tested code base.&#160; Before we know it, 5 things are broken in weird ways, and it now takes us days of manual verification to figure out what works and what doesn’t.&#160; That is hero mode refactoring at its best.

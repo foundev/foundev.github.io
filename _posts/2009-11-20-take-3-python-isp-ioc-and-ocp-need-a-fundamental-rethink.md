@@ -1,7 +1,7 @@
 ---
-title: 'Take 3: Python, ISP, IoC, and OCP need a fundamental rethink.'
 layout: post
 ---
+<h1>Take 3: Python, ISP, IoC, and OCP need a fundamental rethink.</h1>
 In response to Julian’s thoughtful <a href="http://www.colourcoding.net/Blog/archive/2009/11/20/dynamic-languages-and-solid-principles.aspx" target="_blank">Dynamic Languages and SOLID Principles</a> I’d have to argue he is about 95% there but is missing the last critical links needed to view this in a whole different light. For ISP, Julian says it all:
 
 > Ultimately, I don&#8217;t think ISP is changed by Python, it&#8217;s just kind of irrelevant, for better or worse.

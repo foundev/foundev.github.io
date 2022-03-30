@@ -1,7 +1,7 @@
 ---
-title: 'Lambda+: Cassandra and Spark for Scalable Architecture'
 layout: post
 ---
+<h1>Lambda+: Cassandra and Spark for Scalable Architecture</h1>
 <p id="6964">
   <em style="font-size: 16px;">UPDATE: For some background on Spark Streaming and Cassandra please consult some of my previous </em><a style="font-size: 16px;" href="https://medium.com/@foundev/real-time-analytics-with-spark-streaming-and-cassandra-2f90d03342f7" data-href="https://medium.com/@foundev/real-time-analytics-with-spark-streaming-and-cassandra-2f90d03342f7"><em>blog post on the subject</em></a><em style="font-size: 16px;">.</em>
 </p>

@@ -1,7 +1,7 @@
 ---
-title: Playing With Haskell
 layout: post
 ---
+<h1>Playing With Haskell</h1>
 My tech book club is starting to look at Haskell. I'm as big of a language addict as anyone so I wanted to dive in early and this is the overview of what I've found so far
 
 ### Statically Typed But Dynamically Inferred

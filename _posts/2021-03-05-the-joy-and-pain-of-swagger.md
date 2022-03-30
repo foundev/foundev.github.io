@@ -1,8 +1,8 @@
 ---
 layout: post
-title: The Joy and Pain of Swagger
 tags: [swagger, api]
 ---
+<h1>The Joy and Pain of Swagger</h1>
 
 I have had to use [Swagger](https://swagger.io) for many a project since my first introduction to it while working for an ecommerce site in 2015. I did like being able to
 easily convert documentation into viewable API docs complete with executable examples and forms ready to go that let me actually try out my new API. In many ways it is the closest

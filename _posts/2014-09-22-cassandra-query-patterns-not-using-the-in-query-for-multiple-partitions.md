@@ -1,6 +1,5 @@
 ---
 wordpress_id: 147
-title: 'Cassandra Query Patterns: Not using the “in” query for multiple partitions.'
 date: 2014-09-22T22:12:58+00:00
 author: Ryan Svihla
 layout: post
@@ -11,6 +10,7 @@ tags:
   - cassandra
   - data modeling
 ---
+<h1>Cassandra Query Patterns: Not using the “in” query for multiple partitions.</h1>
 So lets say you’re doing you’re best to data model all around one partition. You’ve done your homework and all you queries look like this:
 
 ```sql

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Getting the DataStax cass-operator working on Mac
 tags: [cassandra, kubernetes]
 ---
+<h1>Getting the DataStax cass-operator working on Mac</h1>
 
 Just leaving this here for anyone coming back to this later. This works as of Feb 23 2021 on Big Sur
 

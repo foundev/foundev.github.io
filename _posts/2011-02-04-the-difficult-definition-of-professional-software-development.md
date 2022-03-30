@@ -1,6 +1,5 @@
 ---
 wordpress_id: 48
-title: The difficult definition of professional software development
 date: 2011-02-04T22:51:00+00:00
 author: Ryan Svihla
 layout: post
@@ -11,6 +10,7 @@ tags:
   - Craftsmanship
 redirect_from: "/blogs/rssvihla/archive/2011/02/04/the-difficult-definition-of-professional-software-development.aspx/"
 ---
+<h1>The difficult definition of professional software development</h1>
 Here are some of the contradictory phrases (and a few paraphrases) I&#8217;ve overheard used to define what is &#8220;good&#8221; and &#8220;bad&#8221; code. 
 
   * Code should always be well commented

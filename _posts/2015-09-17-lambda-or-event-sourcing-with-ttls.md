@@ -1,7 +1,7 @@
 ---
-title: Lambda+ or Event Sourcing with TTLs
 layout: post
 ---
+<h1>Lambda+ or Event Sourcing with TTLs</h1>
 
 Some people are worried about the data volume that a strategy like Lambda+ or Event Sourcing implies. As a disclaimer, *by giving up the historical data you have, you risk losing useful data layer and you lose the ability to have bi-temporal data or go back in time.* However, if you still don’t care about that, please continue reading.
 

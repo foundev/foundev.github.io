@@ -1,7 +1,7 @@
 ---
-title: 'Domain Specific Languages with Boo: AST Macros'
 layout: post
 ---
+<h1>Domain Specific Languages with Boo: AST Macros</h1>
 For those of you who don’t know what Boo is its a statically typed CLR language with Python like syntax that lets you extend it’s compiler, and the language itself easily by giving you access to the AST (Abstract Syntax Tree) and compiler’s context directly.&#160; This gives you very powerful tools for building your own language or Domain Specific Language or DSL from here on out. Some examples of DSL’s include rSpec and Fluent NHibernate. In fact the entire subject of what is a DSL and what types of DSL there are and how to create a proper DSL could be a book itself and a fascinating one at that.&#160; 
 
 Which is why I’ve been reading Ayende’s book <a href="http://www.amazon.com/DSLs-Boo-Domain-Specific-Languages/dp/1933988606" target="_blank">DSLs in Boo: Domain Specific Languages in .NET</a>. To make sure I understood the concepts I’ve taken to building a toy BDD DSL called bSpec, it’s got a long way to go to be something useful and I may not care to take it that far, however I did get my brain wrapped around a really cool thing called AST Macros.&#160; 

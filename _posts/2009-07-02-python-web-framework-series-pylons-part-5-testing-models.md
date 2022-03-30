@@ -1,6 +1,5 @@
 ---
 wordpress_id: 18
-title: "Python Web Framework Series – Pylons: Part 5 Testing Models"
 date: 2009-07-02T20:09:00+00:00
 author: Ryan Svihla
 layout: post
@@ -9,6 +8,7 @@ dsq_thread_id:
 tags:
   - python
 ---
+<h1>"Python Web Framework Series – Pylons: Part 5 Testing Models"</h1>
 UPDATE: was an error caught by Govind (who is turning out to be my unofficial proofreader). I&#8217;ve made a correction in the thread mapping for &#8220;dateadded&#8221; property in the _previous_ article. If this you are caught up with and _error indicating there is no dateadded property on thread_ make sure to edit your **model\_\_init\_\_.py** file to match the previous article and rebuild your db so that everything is happy. Please bear with me as I hone my tutorial writing skill set.
 
 When we last left of with our Pylons forum we had a had just successfully created a post, and then could immediately retrieve that same post. However, we kind of skimped on the testing story so lets fill in the gaps and do some refactoring as a bonus.

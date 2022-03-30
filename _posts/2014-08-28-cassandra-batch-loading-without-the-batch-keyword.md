@@ -1,11 +1,11 @@
 ---
-title: Cassandra - Batch loading without the Batch keyword
 date: 2014-08-28T13:10:55+00:00
 author: Ryan Svihla
 layout: post
 tags:
   - Cassandra
 ---
+<h1>Cassandra - Batch loading without the Batch keyword</h1>
 ATTENTION:
 
 _This post is intentionally simplistic to help explain tradeoffs that need to be made. If you are looking for some production level nuance go [read this afterwords.](https://blog.foundev.pro/2016/04/29/cassandra-batch-loading-without-the-batch-the-nuanced-edition.html)_

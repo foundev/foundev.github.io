@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Starting Cassandra - Setting up a Multi-DC environment
 tags: [cassandra]
 ---
+<h1>Starting Cassandra - Setting up a Multi-DC environment</h1>
 
 This is a quick and dirty opinionated guide to setting up a Cassandra cluster with multiple data centers.
 

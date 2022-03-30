@@ -1,7 +1,7 @@
 ---
-title: My Cassandra 2.0 Diagnostics Checklist (Brain Dump)
 layout: post
 ---
+<h1>My Cassandra 2.0 Diagnostics Checklist (Brain Dump)</h1>
 UPDATE:
   
 This list needs to be updated and as of today only has been verified with Cassandra 2.0.
