@@ -1,5 +1,5 @@
-<hr />
-<p>wordpress_id: 274
+---
+wordpress_id: 274
 title: Don’t use TextField for your unique key in Solr
 date: 2016-04-06T08:42:55+00:00
 author: Ryan Svihla
@@ -13,8 +13,8 @@ categories:
 tags:
   - Cassandra
   - DSE
-  - Solr</p>
-<hr />
+  - Solr
+---
 <div>
   <p id="651b">
     This seems immediately obvious when you think about it, but TextField is what you use for fuzzy searches in Solr, and why would a person want a fuzzy search on a unique value? While I can come up with some oddball use cases, making use of copy fields would seem to be the more valid approach and fitting with the typical use of Solr IE you filter on strings and query on text.

@@ -1,5 +1,5 @@
-<hr />
-<p>wordpress_id: 132
+---
+wordpress_id: 132
 title: 'Cassandra C# Driver: Surprising gotcha with SimpleStatement'
 date: 2014-08-29T14:51:06+00:00
 author: Ryan Svihla
@@ -9,8 +9,8 @@ dsq_thread_id:
   - "2970686417"
 categories:
   - 'C#'
-  - Cassandra</p>
-<hr />
+  - Cassandra
+---
 <p>When helping someone with a Batch using the C# driver and I had a bit of a surprise. I wanted to reuse the CQL and I couldn’t at that point use a Prepare because of a bug, since SimpleStatement has a nearly identical API I figured it’d be a one for one replacement so my friend and I started with:</p>
 <pre><code>var batchStmt = new BatchStmt();
 var v2Insert = new SimpleStatement("insert into v1_readonly.documents " +

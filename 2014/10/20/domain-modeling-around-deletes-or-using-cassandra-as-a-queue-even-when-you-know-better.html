@@ -1,5 +1,5 @@
-<hr />
-<p>wordpress_id: 156
+---
+wordpress_id: 156
 title: 'Domain Modeling Around Deletes or &#8220;Using Cassandra as a queue even when you know better&#8221;'
 date: 2014-10-20T12:30:15+00:00
 author: Ryan Svihla
@@ -10,8 +10,8 @@ dsq_thread_id:
 categories:
   - Cassandra
 tags:
-  - Cassandra</p>
-<hr />
+  - Cassandra
+---
 <h1>Understanding Deletes</h1>
 <p>Delete heavy workloads have a number of pretty serious issues when it comes to using a distributed database. Unfortunately one of the most common delete heavy workloads and the most common desired use case for Cassandra is to use it as a global queue. This blog post is aimed at addressing the queue anti-pattern primarily, but could be modeled for other delete heavy use cases.</p>
 <p>Why this is problematic we need to lay some groundwork and explain lets discuss the problems with deletes when no single machine is considered authoritative as in a truly distributed system. You may be thinking &#8220;Deletes on a single machine are easy, you add a record, you delete the record and immediately get disk space back”, something like the following:</p>

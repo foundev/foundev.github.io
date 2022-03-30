@@ -1,5 +1,5 @@
-<hr />
-<p>wordpress_id: 143
+---
+wordpress_id: 143
 title: 'Cassandra Auth: Never use the cassandra user in production!'
 date: 2014-09-22T08:42:34+00:00
 author: Ryan Svihla
@@ -10,8 +10,8 @@ dsq_thread_id:
 categories:
   - Cassandra
 tags:
-  - Cassandra</p>
-<hr />
+  - Cassandra
+---
 <p>Normal best practice for security with applications is never to use the default admin user. In Sql Server this is manifested by the recommendation not to use the “sa” user. Likewise in Cassandra the default Cassandra user has full rights to all tables and operations. This is needless to say bad security from an application design perspective, but there is yet another consideration that I see people in larger organizations run into, performance &amp; availability.</p>
 <h2>QUORUM versus LOCAL_ONE</h2>
 <p>The default cassandra username is a special case for authentication, since it’s used to modify initial <a href="https://issues.apache.org/jira/browse/CASSANDRA-5310">user permissions uses QUORUM consistency when logging in</a>. In a production use case this has important performance implication for multiple data center scenarios (hereafter referered to as MDC) which means if you have 3 data centers, all with system_auth set to a replication factor of 3 (or 9 replicas total), QUORUM consistency will query 6 nodes, some of which going over high latency network links! Worse, if you were to lose 1 data center and 1 other node, you’d be unable to login! </p>

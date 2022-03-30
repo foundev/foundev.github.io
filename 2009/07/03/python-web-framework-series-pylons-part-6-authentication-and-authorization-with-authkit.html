@@ -1,5 +1,5 @@
-<hr />
-<p>wordpress_id: 19
+---
+wordpress_id: 19
 title: 'Python Web Framework Series – Pylons: Part 6 Basic Authorization With AuthKit'
 date: 2009-07-03T12:00:00+00:00
 author: Ryan Svihla
@@ -11,8 +11,8 @@ categories:
   - Authkit
   - Pylons
   - Python
-redirect_from: "/blogs/rssvihla/archive/2009/07/03/python-web-framework-series-pylons-part-6-authentication-and-authorization-with-authkit.aspx/"</p>
-<hr />
+redirect_from: "/blogs/rssvihla/archive/2009/07/03/python-web-framework-series-pylons-part-6-authentication-and-authorization-with-authkit.aspx/"
+---
 <p>Last post we left off with very basic database access, and testing story completed. Now we&#8217;re going to look at basic Authorization and Authentication with AuthKit. NOTE: most of this post is just an aggregation of a couple of chapters in the <a href="http://pylonsbook.com/en/1.0/simplesite-tutorial-part-3.html">Pylons Book</a> since this setup is a good base starting point. Read the previous link to the Pylons Book for more in depth coverage of this topic.&nbsp; </p>
 <h3>Setting Up AuthKit</h3>
 <p>First lets make sure we have AuthKit installed: <em>easy_install AuthKit</em>. For this post we&#8217;re working with AuthKit 0.4.3, your mileage may vary if you read this post in the future and are using a different version. Now that we have Authkit installed open up <strong>pylonsforumconfigmiddleware.py</strong> add the following imports: </p>

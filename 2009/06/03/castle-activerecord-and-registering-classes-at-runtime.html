@@ -1,10 +1,10 @@
-<hr />
-<p>title: Castle ActiveRecord and registering classes at runtime
+---
+title: Castle ActiveRecord and registering classes at runtime
 date: 2009-06-03T06:02:00+00:00
 author: Ryan Svihla
 layout: post
-tags: [csharp]</p>
-<hr />
+tags: [csharp]
+---
 <p><em>EDIT: this is an old post copied over from my <a href="https://lostechies.com/ryansvihla/2009/06/03/castle-activerecord-and-registering-classes-at-runtime/">old blog on Los Techies</a>, I have kept it here for archival reasons.</em></p>
 <p>I use the following trick for adding ActiveRecord classes after the fact for our in-house plug-in architecture. Thanks to whichever blogger/mailing list I picked this up from so long ago.</p>
 <h2>Scenario 1: Class(es) to load inherit from same base class as current running ActiveRecord classes</h2>

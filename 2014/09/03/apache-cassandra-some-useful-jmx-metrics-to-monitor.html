@@ -1,5 +1,5 @@
-<hr />
-<p>wordpress_id: 3490
+---
+wordpress_id: 3490
 title: 'Apache Cassandra: Some useful JMX metrics to monitor'
 date: 2014-09-03T11:03:06+00:00
 author: Ryan Svihla
@@ -11,8 +11,8 @@ categories:
   - Cassandra
 tags:
   - Cassandra
-  - JMX</p>
-<hr />
+  - JMX
+---
 <p>This is not a complete list, but is this what I’ve typically had to look out for in the wild. There maybe some selection bias at play since once I’m involved with a cluster it’s not in a good place.</p>
 <p><sub><strong><em>org.apache.cassandra.metrics/DroppedMessage/MUTATION/Attributes/Count</em></strong></sub></p>
 <p>This should always be 0. This is indicative of load shedding and while there can be short term bursts where this is only a temporary problem that normal maintenance cleans up, it’s more often than not indicative that your cluster is overloaded, mistuned or just flat our running on bad hardware to begin with.</p>

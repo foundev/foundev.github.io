@@ -1,5 +1,5 @@
-<hr />
-<p>wordpress_id: 108
+---
+wordpress_id: 108
 title: Buffer Cache Makes Slow Disks Seem Fast, Till You Need Them.
 date: 2014-04-20T15:39:29+00:00
 author: Ryan Svihla
@@ -12,8 +12,8 @@ categories:
 tags:
   - Buffer Cache
   - Disk IO
-  - Linux</p>
-<hr />
+  - Linux
+---
 <p>Linux has this wonderful thing called the buffer cache (for more detail read <a href="http://www.tldp.org/LDP/sag/html/buffer-cache.html">here</a> ). In summary, it uses all your free ram as a cache for file access. Because of buffer cache you can easily get under 1 millisecond response times.</p>
 <p>However, this sets a lot of people up for a trap. Imagine you buy a “database server” with a 5400RPM hard disk at Best Buy, while you’re there you pick up an extra 8 gigs of RAM. After loading the latest Ubuntu and restoring a 1 gig customer database backup. You check to see how much RAM you’re using and you have 2 gigs free. You test the new server out and records are coming off that server at an unbelievable speed, your happy, your boss is happy, you look like a genius.</p>
 <p>Later that month your company acquires a new firm, you write a script to load their 3 gigs worth of customer data into your same customer database. The next thing you know your server is <strong>behind</strong>, your website is timing out, your data takes forever to come back, but when you go to access a common page you use for testing the responses are instant. What gives?</p>

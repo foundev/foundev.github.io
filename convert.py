@@ -6,8 +6,34 @@ import markdown
 DRY_RUN = False
 
 
+def read_md_file(md):
+    found_header_start = False
+    found_header = False
+    read = False
+    lines = []
+    header = ["---"]
+    for line in md.split("\n"):
+        if read:
+            lines.append(line)
+        else:
+            if line == "---":
+                if found_header_start:
+                    read = True
+                else:
+                    found_header_start = True
+            else:
+                header.append(line)
+    header.append("---")
+    header_str = "\n".join(header)
+    body_str = "\n".join(lines)
+    return header_str, body_str
+
+
 def convert_to_html(md):
-    return markdown.markdown(md)
+    header, markdown_only = read_md_file(md)
+    html = markdown.markdown(markdown_only)
+    return header + "\n" + html
+
 
 def convert_file_name(file_name):
     tokens = file_name.split("-")

@@ -1,5 +1,5 @@
-<hr />
-<p>wordpress_id: 100
+---
+wordpress_id: 100
 title: Data Modeling for Scale with Cassandra
 date: 2014-04-17T14:05:32+00:00
 author: Ryan Svihla
@@ -8,8 +8,8 @@ wordpress_guid: http://lostechies.com/ryansvihla/?p=100
 dsq_thread_id:
   - "2619596252"
 categories:
-  - Cassandra</p>
-<hr />
+  - Cassandra
+---
 <h2>Reads and the perils of index tables.</h2>
 <p>I frequently see index tables in Cassandra being used to allow a One Source Of Truth. It’s important to remember when designing a truly distributed system relational algebra really doesn’t scale, and in memory joins will only get you so far (very little really). So as we often do in relational systems when we have an expensive dataset that is to expensive to calculate on the fly we create a materialized view. In Cassandra it’s helpful to think this way for all datasets that would require joins in a relational system.</p>
 <p>Since Cassandra is write optimized lets take a look a typical social networking pattern with a “users stream” and see how we’d model with traditional normalization of data and how this looks in Cassandra with denormalized data.</p>

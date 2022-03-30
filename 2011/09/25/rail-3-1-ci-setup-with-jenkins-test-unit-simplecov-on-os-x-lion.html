@@ -1,5 +1,5 @@
-<hr />
-<p>wordpress_id: 53
+---
+wordpress_id: 53
 title: 'Rail 3.1 CI setup with Jenkins, Test Unit &#038; SimpleCov on OS X Lion.'
 date: 2011-09-25T12:04:54+00:00
 author: Ryan Svihla
@@ -9,8 +9,8 @@ dsq_thread_id:
   - "425495610"
 tags:
   - CI
-  - Rails</p>
-<hr />
+  - Rails
+---
 <p>I recently had to setup a build server for some rails work I'm doing. Still wanting to support my other projects I setup Jenkins. I ran into several issues.</p>
 <h2>Running Jenkins as a hidden user</h2>
 <p>First I noticed that jenkins was running as the "daemon" user, this obviously wasn't going to work for github and rvm needs. So I did some googling and had some guides to get Jenkins running as a specific user. I did the following (sourced from http://colonelpanic.net/2011/06/jenkins-on-mac-os-x-git-w-ssh-public-key/ ).</p>
