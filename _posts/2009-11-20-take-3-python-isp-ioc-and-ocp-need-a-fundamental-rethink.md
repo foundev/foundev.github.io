@@ -1,16 +1,6 @@
 ---
-wordpress_id: 34
 title: 'Take 3: Python, ISP, IoC, and OCP need a fundamental rethink.'
-date: 2009-11-20T19:23:00+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: /blogs/rssvihla/archive/2009/11/20/take-3-python-isp-ioc-and-ocp-need-a-fundamental-rethink.aspx
-dsq_thread_id:
-  - "425624375"
-categories:
-  - Dynamic Langs
-  - IoC
-redirect_from: "/blogs/rssvihla/archive/2009/11/20/take-3-python-isp-ioc-and-ocp-need-a-fundamental-rethink.aspx/"
 ---
 In response to Julian’s thoughtful <a href="http://www.colourcoding.net/Blog/archive/2009/11/20/dynamic-languages-and-solid-principles.aspx" target="_blank">Dynamic Languages and SOLID Principles</a> I’d have to argue he is about 95% there but is missing the last critical links needed to view this in a whole different light. For ISP, Julian says it all:
 

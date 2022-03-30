@@ -1,17 +1,6 @@
 ---
 title: Lambda+ or Event Sourcing with TTLs
-date: 2015-09-17T13:00:02+00:00
-author: Ryan Svihla
 layout: post
-categories:
-  - Cassandra
-  - Event sourcing
-  - Lambda
-tags:
-  - Cassandra
-  - Data Modeling
-  - Event Sourcing
-  - Lambda
 ---
 
 Some people are worried about the data volume that a strategy like Lambda+ or Event Sourcing implies. As a disclaimer, *by giving up the historical data you have, you risk losing useful data layer and you lose the ability to have bi-temporal data or go back in time.* However, if you still don’t care about that, please continue reading.

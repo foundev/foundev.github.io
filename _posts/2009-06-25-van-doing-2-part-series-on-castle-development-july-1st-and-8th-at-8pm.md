@@ -1,21 +1,10 @@
 ---
-wordpress_id: 15
 title: 'VAN: Doing 2 Part Series on Castle development July 1st and 8th at 8pm'
-date: 2009-06-25T02:52:00+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: /blogs/rssvihla/archive/2009/06/24/van-doing-2-part-series-on-castle-development-july-1st-and-8th-at-8pm.aspx
-dsq_thread_id:
-  - "1373571273"
-categories:
-  - Castle
-  - MonoRail
-  - VAN
-redirect_from: "/blogs/rssvihla/archive/2009/06/24/van-doing-2-part-series-on-castle-development-july-1st-and-8th-at-8pm.aspx/"
 ---
-I know this isn&#8217;t related to my Pylons series and worry not there is no interruption in that, but I&#8217;m giving a couple of talks on <a target="_blank" title="Virtual Alt.net" href="/controlpanel/blogs/posteditor.aspx/www.virtualaltnet.com">Virtual Alt.Net</a><span style="border-collapse: collapse">. The first one I&#8217;ve done before and you may have heard it at Alamo Coders, the second one is all new and it&#8217;ll give me opportunity to clean up and release my lightweight plugin framework for monorail.</span>
+I know this isn't related to my Pylons series and worry not there is no interruption in that, but I&#8217;m giving a couple of talks on <a target="_blank" title="Virtual Alt.net" href="/controlpanel/blogs/posteditor.aspx/www.virtualaltnet.com">Virtual Alt.Net</a><span style="border-collapse: collapse">. The first one I've done before and you may have heard it at Alamo Coders, the second one is all new and it'll give me opportunity to clean up and release my lightweight plugin framework for monorail.</span>
 
-For those of you who don&#8217;t know Virtual Alt Net is held over Live Meeting <a target="_self" title="here" href="http://www.snipr.com/virtualaltnet">here</a>
+For those of you who don't know Virtual Alt Net is held over Live Meeting <a target="_self" title="here" href="http://www.snipr.com/virtualaltnet">here</a>
 
 <span style="border-collapse: collapse">Part 1 July 1st: IoC and Dip through Castle Windsor:</p> 
 

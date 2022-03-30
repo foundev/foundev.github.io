@@ -1,17 +1,6 @@
 ---
-wordpress_id: 20
-title: 'Python Web Framework Series – Pylons Part 7: Refactoring, Deployment And Wrap-Up'
-date: 2009-07-04T12:00:00+00:00
-author: Ryan Svihla
+title: 'Python Web Framework Series – Pylons: Part 7 Refactoring Deployment and Wrap up'
 layout: post
-wordpress_guid: /blogs/rssvihla/archive/2009/07/04/python-web-series-pylons-part-7-refactoring-deployment-and-wrap-up.aspx
-dsq_thread_id:
-  - "425624235"
-categories:
-  - Authkit
-  - Pylons
-  - Python
-redirect_from: "/blogs/rssvihla/archive/2009/07/04/python-web-series-pylons-part-7-refactoring-deployment-and-wrap-up.aspx/"
 ---
 Lets take a look at our existing site and what we can do to clean it up and add some badly needed functionality, however that is beyond the scope of my series. So I&rsquo;m going to leave some hints for the remaining functionality to get you started.
 

@@ -1,17 +1,6 @@
 ---
-wordpress_id: 3490
 title: 'Apache Cassandra: Some useful JMX metrics to monitor'
-date: 2014-09-03T11:03:06+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: http://lostechies.com/ryansvihla/?p=136
-dsq_thread_id:
-  - "2984835523"
-categories:
-  - Cassandra
-tags:
-  - Cassandra
-  - JMX
 ---
 This is not a complete list, but is this what I’ve typically had to look out for in the wild. There maybe some selection bias at play since once I’m involved with a cluster it’s not in a good place.
 

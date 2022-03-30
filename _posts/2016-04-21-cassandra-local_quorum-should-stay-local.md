@@ -1,14 +1,6 @@
 ---
-wordpress_id: 318
 title: CASSANDRA LOCAL_QUORUM SHOULD STAY LOCAL
-date: 2016-04-21T07:45:10+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: https://lostechies.com/ryansvihla/?p=318
-dsq_thread_id:
-  - "4765168114"
-categories:
-  - Cassandra
 ---
 <p id="0479">
   A couple of times a week I get a question where someone wants to know how to “failover” to a remote DC in the driver if the local Cassandra DC fails or even if there is only a couple of nodes in the local data center that are down.

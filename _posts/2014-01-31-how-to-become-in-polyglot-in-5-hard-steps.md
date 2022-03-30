@@ -1,14 +1,6 @@
 ---
-wordpress_id: 85
 title: How to become in polyglot in 5 hard steps.
-date: 2014-01-31T23:02:41+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: http://lostechies.com/ryansvihla/?p=85
-dsq_thread_id:
-  - "2204944487"
-categories:
-  - learning
 ---
 With today&#8217;s world of programming languages where many languages are better at certain tasks than other&#8217;s you&#8217;ll find it useful to learn multiple languages over the course of your career (as well as keeping your skill sets current).
 

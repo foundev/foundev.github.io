@@ -1,16 +1,6 @@
 ---
-wordpress_id: 22
 title: Lessons From My First Attempt At Bringing Agile Into A Non-Agile shop.
-date: 2009-07-12T07:06:08+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: /blogs/rssvihla/archive/2009/07/12/lessons-from-my-first-attempt-at-bringing-agile-into-a-non-agile-shop.aspx
-dsq_thread_id:
-  - "425624250"
-categories:
-  - Agile
-  - lean
-redirect_from: "/blogs/rssvihla/archive/2009/07/12/lessons-from-my-first-attempt-at-bringing-agile-into-a-non-agile-shop.aspx/"
 ---
 Since I’m moving on from my current employer I figure now is a great time to share my post-mortem of my time there, specifically what worked, what didn’t and what did I learn.
 

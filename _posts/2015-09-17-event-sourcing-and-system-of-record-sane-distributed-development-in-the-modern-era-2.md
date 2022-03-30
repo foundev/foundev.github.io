@@ -1,17 +1,6 @@
 ---
 title: 'Event Sourcing and System of Record: Sane Distributed Development In The Modern Era'
-date: 2015-09-17T11:20:41+00:00
-author: Ryan Svihla
 layout: post
-categories:
-  - Cassandra
-  - Event sourcing
-  - Lambda
-tags:
-  - Cassandra
-  - Distributed
-  - Idempotent
-  - Event sourcing
 ---
 No matter the message queue or broker you rely on whether it be RabbitMQ, JMS, ActiveMQ, Websphere, MSMQ and yes even Kafka you can lose messages in any of the following ways:
 

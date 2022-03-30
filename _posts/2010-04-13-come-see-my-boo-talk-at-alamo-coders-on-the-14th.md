@@ -1,15 +1,6 @@
 ---
-wordpress_id: 38
 title: Come see my Boo talk at Alamo Coders on the 14th
-date: 2010-04-13T19:03:00+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: /blogs/rssvihla/archive/2010/04/13/come-see-my-boo-talk-at-alamo-coders-on-the-14th.aspx
-dsq_thread_id:
-  - "425624456"
-categories:
-  - Boo
-redirect_from: "/blogs/rssvihla/archive/2010/04/13/come-see-my-boo-talk-at-alamo-coders-on-the-14th.aspx/"
 ---
 UPDATE: added links for video, slides and source
 

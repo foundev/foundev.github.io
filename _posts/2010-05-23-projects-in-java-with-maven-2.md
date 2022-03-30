@@ -1,15 +1,6 @@
 ---
-wordpress_id: 40
 title: Projects in Java with Maven 2
-date: 2010-05-23T02:56:22+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: /blogs/rssvihla/archive/2010/05/22/projects-in-java-with-maven-2.aspx
-dsq_thread_id:
-  - "1088470090"
-categories:
-  - Uncategorized
-redirect_from: "/blogs/rssvihla/archive/2010/05/22/projects-in-java-with-maven-2.aspx/"
 ---
 NOTE: due to issues with spam I’ve turned off comments, I’ve cross posted on my [old blogger account](http://ryansvihla.blogspot.com/2010/05/projects-in-java-with-maven-2.html) if you have comments.
 

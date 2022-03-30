@@ -1,17 +1,6 @@
 ---
-wordpress_id: 32
 title: I recant my IoC! IoC containers in dynamic languages are silly.
-date: 2009-11-16T22:28:33+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: /blogs/rssvihla/archive/2009/11/16/i-recant-my-ioc-ioc-containers-in-dynamic-languages-are-silly.aspx
-dsq_thread_id:
-  - "425592900"
-categories:
-  - Dynamic Langs
-  - IoC
-  - Python
-redirect_from: "/blogs/rssvihla/archive/2009/11/16/i-recant-my-ioc-ioc-containers-in-dynamic-languages-are-silly.aspx/"
 ---
 After a year or so of solid Alt Dot Net infection (as far as infections go its a pretty awesome one to have), I decided to give Python a try again for more than one off sysadmin tasks, and to actually dive into it as a newly minted “Agilista”.&#160; 
 

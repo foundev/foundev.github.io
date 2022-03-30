@@ -1,18 +1,6 @@
 ---
-wordpress_id: 277
 title: Logging The Generated CQL from the Spark Cassandra Connector
-date: 2016-04-07T08:43:37+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: https://lostechies.com/ryansvihla/?p=277
-dsq_thread_id:
-  - "4762601170"
-categories:
-  - Cassandra
-  - Spark
-tags:
-  - Cassandra
-  - Spark
 ---
 <p id="b9fd">
   This has come up some in the last few days so I thought I’d share the available options and the tradeoffs.

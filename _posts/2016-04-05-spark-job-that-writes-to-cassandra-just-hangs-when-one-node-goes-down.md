@@ -1,16 +1,6 @@
 ---
-wordpress_id: 296
 title: Spark job that writes to Cassandra just hangs when one node goes down?
-date: 2016-04-05T17:48:16+00:00
-author: Ryan Svihla
-excerpt: If one node takes down your app, do you have any replicas?
 layout: post
-wordpress_guid: https://lostechies.com/ryansvihla/?p=296
-dsq_thread_id:
-  - "4726220329"
-categories:
-  - Cassandra
-  - Spark
 tags:
   - Cassandra
   - Spark

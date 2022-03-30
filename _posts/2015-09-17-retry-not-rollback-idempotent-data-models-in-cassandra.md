@@ -1,14 +1,6 @@
 ---
-wordpress_id: 202
 title: 'Retry not Rollback: Idempotent Data Models in Cassandra'
-date: 2015-09-17T11:49:05+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: https://lostechies.com/ryansvihla/?p=202
-dsq_thread_id:
-  - "4138896457"
-categories:
-  - Cassandra
 ---
 ###  {#737a}
 

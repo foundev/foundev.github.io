@@ -1,18 +1,6 @@
 ---
-wordpress_id: 73
 title: An Evernote backed Journal using Vim/Emacs
-date: 2013-04-07T11:54:31+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: http://lostechies.com/ryansvihla/?p=73
-dsq_thread_id:
-  - "1194358033"
-categories:
-  - Evernote
-  - Vim
-tags:
-  - Evernote
-  - Vim
 ---
 I journal quite a bit and my holy grail has been using my favorite text editor (Vim or Vim bindings) with Evernote to store the everything in a smart searchable format. Today I stumbled onto a neat little tool that makes this all happen called Geeknote http://www.geeknote.me/.  It&#8217;s written in Python and works fine on my Mac.
 

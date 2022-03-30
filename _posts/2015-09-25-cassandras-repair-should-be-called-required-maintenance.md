@@ -1,17 +1,6 @@
 ---
-wordpress_id: 259
 title: Cassandra’s “Repair” Should Be Called “Required Maintenance”
-date: 2015-09-25T11:38:37+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: https://lostechies.com/ryansvihla/?p=259
-dsq_thread_id:
-  - "4165347837"
-categories:
-  - Cassandra
-tags:
-  - Cassandra
-  - cassandra repair
 ---
 <p id="f577">
   <span style="font-size: 16px;">One of the bigger challenges when you go Eventually Consistent is how to reconcile data not being replicated. This happens if your using Oracle and multi-data centers with tech like Golden Gate and it happens if you’re using async replicas with MySQL and one of your replicas got out of whack. You need a way to “repair” the lost data.</span>

@@ -1,16 +1,6 @@
 ---
-wordpress_id: 143
 title: 'Cassandra Auth: Never use the cassandra user in production!'
-date: 2014-09-22T08:42:34+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: http://lostechies.com/ryansvihla/?p=143
-dsq_thread_id:
-  - "3042604396"
-categories:
-  - Cassandra
-tags:
-  - Cassandra
 ---
 Normal best practice for security with applications is never to use the default admin user. In Sql Server this is manifested by the recommendation not to use the “sa” user. Likewise in Cassandra the default Cassandra user has full rights to all tables and operations. This is needless to say bad security from an application design perspective, but there is yet another consideration that I see people in larger organizations run into, performance & availability.
 

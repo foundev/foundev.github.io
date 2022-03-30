@@ -1,17 +1,6 @@
 ---
-wordpress_id: 28
 title: Dynamic Loading of .Net Assemblies
-date: 2009-08-31T22:29:00+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: /blogs/rssvihla/archive/2009/08/31/dynamic-loading-of-net-assemblies.aspx
-dsq_thread_id:
-  - "425624292"
-categories:
-  - AppDomain
-  - DotNet
-  - Hate
-redirect_from: "/blogs/rssvihla/archive/2009/08/31/dynamic-loading-of-net-assemblies.aspx/"
 ---
 Problem: You have dependencies which can be in a number of directories outside of the directory your app is running in. DotNet AppDomains are heavy to say the least and very high in ceremony.&#160; You do not want to deal with secondary app domain creation.
 

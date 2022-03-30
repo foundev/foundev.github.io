@@ -1,19 +1,6 @@
 ---
-wordpress_id: 274
 title: Don’t use TextField for your unique key in Solr
-date: 2016-04-06T08:42:55+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: https://lostechies.com/ryansvihla/?p=274
-dsq_thread_id:
-  - "4787964919"
-categories:
-  - Cassandra
-  - Solr
-tags:
-  - Cassandra
-  - DSE
-  - Solr
 ---
 <div>
   <p id="651b">

@@ -1,19 +1,6 @@
 ---
-wordpress_id: 3491
 title: Real Time Analytics With Spark Streaming and Cassandra
-date: 2015-09-17T12:28:25+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: https://lostechies.com/ryansvihla/?p=210
-dsq_thread_id:
-  - "4138990898"
-categories:
-  - Cassandra
-  - Spark
-tags:
-  - Cassandra
-  - Spark
-  - Spark Streaming
 ---
 <p id="2c8c">
   <a style="font-size: 16px;" href="http://spark.apache.org/streaming/" rel="nofollow" data-href="http://spark.apache.org/streaming/">Spark Streaming</a><span style="font-size: 16px;"> is a good tool to roll up transactions data into summaries as they enter the system. When paired with an easily idempotent data store like Cassandra you get a high performance low hassle approach to getting your work done.</span>

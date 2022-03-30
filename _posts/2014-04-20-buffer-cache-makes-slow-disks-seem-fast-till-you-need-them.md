@@ -1,18 +1,6 @@
 ---
-wordpress_id: 108
 title: Buffer Cache Makes Slow Disks Seem Fast, Till You Need Them.
-date: 2014-04-20T15:39:29+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: http://lostechies.com/ryansvihla/?p=108
-dsq_thread_id:
-  - "2626355770"
-categories:
-  - Sysadmin
-tags:
-  - Buffer Cache
-  - Disk IO
-  - Linux
 ---
 Linux has this wonderful thing called the buffer cache (for more detail read [here](http://www.tldp.org/LDP/sag/html/buffer-cache.html) ). In summary, it uses all your free ram as a cache for file access. Because of buffer cache you can easily get under 1 millisecond response times.
 

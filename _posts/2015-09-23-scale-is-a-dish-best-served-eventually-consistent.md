@@ -1,18 +1,6 @@
 ---
-wordpress_id: 234
 title: Scale is a Dish Best Served Eventually Consistent
-date: 2015-09-23T10:58:51+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: https://lostechies.com/ryansvihla/?p=234
-dsq_thread_id:
-  - "4158247130"
-categories:
-  - Cassandra
-  - Distributed
-tags:
-  - Cassandra
-  - Distributed
 ---
 <p id="6c7d">
   <span style="font-size: 16px;">A lot of people new to Cassandra find the data modeling required tedious and outrageously hard. They’ll long for their RDMBS, if only </span><strong style="font-size: 16px;">i<em>nsert favorite vendor or project lead here</em></strong><span style="font-size: 16px;"> would make their RDBMS scale like Cassandra they could tell their bosses to shove off and go back to using their favorite tool. To people saying this (and I hear the echos of it in conversations often), I’ve got news for you, the problem isn’t Cassandra or your favorite tool, it’s your style of data modeling.</span>

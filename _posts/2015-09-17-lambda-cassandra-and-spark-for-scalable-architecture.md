@@ -1,19 +1,6 @@
 ---
-wordpress_id: 221
 title: 'Lambda+: Cassandra and Spark for Scalable Architecture'
-date: 2015-09-17T12:54:59+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: https://lostechies.com/ryansvihla/?p=221
-dsq_thread_id:
-  - "4139088813"
-categories:
-  - Cassandra
-  - Spark
-tags:
-  - Cassandra
-  - Lambda
-  - Spark
 ---
 <p id="6964">
   <em style="font-size: 16px;">UPDATE: For some background on Spark Streaming and Cassandra please consult some of my previous </em><a style="font-size: 16px;" href="https://medium.com/@foundev/real-time-analytics-with-spark-streaming-and-cassandra-2f90d03342f7" data-href="https://medium.com/@foundev/real-time-analytics-with-spark-streaming-and-cassandra-2f90d03342f7"><em>blog post on the subject</em></a><em style="font-size: 16px;">.</em>

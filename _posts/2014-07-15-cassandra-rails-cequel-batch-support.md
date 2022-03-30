@@ -1,16 +1,6 @@
 ---
-wordpress_id: 116
 title: 'Cassandra &#038; Rails: Cequel Batch Support'
-date: 2014-07-15T12:15:51+00:00
-author: Ryan Svihla
 layout: post
-wordpress_guid: http://lostechies.com/ryansvihla/?p=116
-dsq_thread_id:
-  - "2846091548"
-categories:
-  - Cassandra
-  - ORM
-  - Rails
 ---
 Cassandra On Rails using Cequel Atomic Batch Support When I first tried to use Cassandra with Rails over a year ago the lack of a good native (IE not thrift) driver and a good mapper was a show stopper for the project I was on. Today the situation has improved markedly with the cql-rb driver proving stable in usage, and the excellent Cequel ActiveModel capable library switching to use cql-rb.
 
