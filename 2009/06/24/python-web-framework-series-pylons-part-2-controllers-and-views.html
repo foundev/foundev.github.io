@@ -1,0 +1,255 @@
+<hr />
+<p>title: "Python Web Framework Series – Pylons: Part 2 Controllers, Views and Testing"
+date: 2009-06-24T13:22:00+00:00
+author: Ryan Svihla
+layout: post
+tags:
+  - python</p>
+<hr />
+<p>We last left off with <a target="_blank" href="/2009/06/23/python-web-framework-series-pylons-part-1-getting-started.html">Getting Started</a> and having created our &ldquo;pylonsforum&rdquo; project and generated our first controller.</p>
+<p>Source for home.py</p>
+<p>``</p>
+<div class="wlWriterEditableSmartContent" style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px">
+  <div style="font-family:consolas,lucida console,courier,monospace">
+    <span style="color: #0000ff">import</span>&nbsp;logging&nbsp;</p> 
+
+    <p>
+      <span style="color: #0000ff">from</span>&nbsp;pylons&nbsp;<span style="color: #0000ff">import</span>&nbsp;request,&nbsp;response,&nbsp;session,&nbsp;tmpl_context&nbsp;<span style="color: #0000ff">as</span>&nbsp;c&nbsp;<br /> <span style="color: #0000ff">from</span>&nbsp;pylons.controllers.util&nbsp;<span style="color: #0000ff">import</span>&nbsp;abort,&nbsp;redirect_to&nbsp;
+    </p>
+
+    <p>
+      <span style="color: #0000ff">from</span>&nbsp;pylonsforum.lib.base&nbsp;<span style="color: #0000ff">import</span>&nbsp;BaseController,&nbsp;render&nbsp;
+    </p>
+
+    <p>
+      log&nbsp;=&nbsp;logging.getLogger(__name__)&nbsp;
+    </p>
+
+    <p>
+      <span style="color: #0000ff">class</span>&nbsp;<span style="color: #2b91af">HomeController</span>(BaseController):&nbsp;
+    </p>
+
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff">def</span>&nbsp;index(self):&nbsp;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000">#&nbsp;Return&nbsp;a&nbsp;rendered&nbsp;template&nbsp;</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000">#return&nbsp;render(&#8216;/home.mako&#8217;)&nbsp;</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000">#&nbsp;or,&nbsp;return&nbsp;a&nbsp;response&nbsp;</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff">return</span>&nbsp;<span style="color: #a31515">&#8216;Hello&nbsp;World</span> </div> </div>
+
+<pre><code>  &lt;p&gt;
+    Source for test_home.py&lt;code&gt;&lt;/code&gt;
+  &lt;/p&gt;
+
+  &lt;p&gt;
+    &amp;nbsp;
+  &lt;/p&gt;
+
+  &lt;div class="wlWriterEditableSmartContent" style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px"&gt;
+    &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+      &lt;span style="color: #0000ff"&gt;from&lt;/span&gt;&amp;nbsp;pylonsforum.tests&amp;nbsp;&lt;span style="color: #0000ff"&gt;import&lt;/span&gt;&amp;nbsp;*&amp;nbsp;&lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;span style="color: #0000ff"&gt;class&lt;/span&gt;&amp;nbsp;&lt;span style="color: #2b91af"&gt;TestHomeController&lt;/span&gt;(TestController):&amp;nbsp;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #0000ff"&gt;def&lt;/span&gt;&amp;nbsp;test_index(self):&amp;nbsp;&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;response&amp;nbsp;=&amp;nbsp;self.app.get(url(controller=&lt;span style="color: #a31515"&gt;&amp;#8216;home&amp;#8217;&lt;/span&gt;,&amp;nbsp;action=&lt;span style="color: #a31515"&gt;&amp;#8216;index&amp;#8217;&lt;/span&gt;))&amp;nbsp;&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #008000"&gt;#&amp;nbsp;Test&amp;nbsp;response&amp;#8230;&lt;/span&gt; &lt;/div&gt; &lt;/div&gt;
+
+        &lt;p&gt;
+          &amp;nbsp;
+        &lt;/p&gt;
+
+        &lt;h3&gt;
+          &lt;code&gt;&lt;/code&gt;
+        &lt;/h3&gt;
+
+        &lt;p&gt;
+          &amp;nbsp;
+        &lt;/p&gt;
+
+        &lt;h3&gt;
+          Some Testing Setup
+        &lt;/h3&gt;
+
+        &lt;p&gt;
+          Now this is optional but these are some things I got out of the &lt;a target="_blank" href="http://pylonsbook.com"&gt;Pylons Book&lt;/a&gt; with test setup, mainly I wanted to refresh the test database on every go.
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          first open up test.ini in the top level of your project and change the [app:main] section to the following:
+        &lt;/p&gt;
+
+        &lt;hr /&gt;
+
+        &lt;p&gt;
+          &amp;nbsp;
+        &lt;/p&gt;
+
+        &lt;div class="wlWriterEditableSmartContent" style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px"&gt;
+          &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+            [app:main]&lt;br /&gt; #use&amp;nbsp;=&amp;nbsp;config:development.ini&lt;br /&gt; use&amp;nbsp;=&amp;nbsp;egg:pylonsforum&lt;br /&gt; full_stack&amp;nbsp;=&amp;nbsp;true&lt;br /&gt; cache_dir&amp;nbsp;=&amp;nbsp;%&amp;nbsp;(here)s/data&lt;br /&gt; beaker.session.key&amp;nbsp;=&amp;nbsp;pylonsforum&lt;br /&gt; beaker.session.secret&amp;nbsp;=&amp;nbsp;somesecret&lt;/p&gt;
+
+            &lt;p&gt;
+              sqlalchemy.url&amp;nbsp;=&amp;nbsp;sqlite:///%(here)s/test.db &lt;/div&gt; &lt;/div&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;hr /&gt;
+
+              &lt;p&gt;
+                Then open up websetup.py in the pylonsforum directory and change it to so:
+              &lt;/p&gt;
+
+              &lt;div class="wlWriterEditableSmartContent" style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px"&gt;
+                &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+                  &lt;span style="color: #a31515"&gt;&amp;#8220;&amp;#8221;&amp;#8221;Setup&amp;nbsp;the&amp;nbsp;pylonsforum&amp;nbsp;application&amp;#8221;&amp;#8221;&amp;#8221;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #0000ff"&gt;import&lt;/span&gt;&amp;nbsp;logging&lt;br /&gt; &lt;span style="color: #0000ff"&gt;from&lt;/span&gt;&amp;nbsp;pylonsforum&amp;nbsp;&lt;span style="color: #0000ff"&gt;import&lt;/span&gt;&amp;nbsp;model&lt;br /&gt; &lt;span style="color: #0000ff"&gt;import&lt;/span&gt;&amp;nbsp;os.path&lt;/p&gt;
+
+                  &lt;p&gt;
+                    &lt;span style="color: #0000ff"&gt;from&lt;/span&gt;&amp;nbsp;pylonsforum.config.environment&amp;nbsp;&lt;span style="color: #0000ff"&gt;import&lt;/span&gt;&amp;nbsp;load_environment
+                  &lt;/p&gt;
+
+                  &lt;p&gt;
+                    log&amp;nbsp;=&amp;nbsp;logging.getLogger(__name__)
+                  &lt;/p&gt;
+
+                  &lt;p&gt;
+                    &lt;span style="color: #0000ff"&gt;def&lt;/span&gt;&amp;nbsp;setup_app(command,&amp;nbsp;conf,&amp;nbsp;vars):&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;load_environment(conf.global_conf,&amp;nbsp;conf.local_conf)&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #008000"&gt;#&amp;nbsp;Load&amp;nbsp;the&amp;nbsp;models&lt;/span&gt;&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #0000ff"&gt;from&lt;/span&gt;&amp;nbsp;pylonsforum.model&amp;nbsp;&lt;span style="color: #0000ff"&gt;import&lt;/span&gt;&amp;nbsp;meta&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;meta.metadata.bind&amp;nbsp;=&amp;nbsp;meta.engine&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;filename&amp;nbsp;=&amp;nbsp;os.path.split(conf.filename)[-1]&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #0000ff"&gt;if&lt;/span&gt;&amp;nbsp;filename&amp;nbsp;==&amp;nbsp;&lt;span style="color: #a31515"&gt;&amp;#8216;test.ini&amp;#8217;&lt;/span&gt;:&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #008000"&gt;#&amp;nbsp;Permanently&amp;nbsp;drop&amp;nbsp;any&amp;nbsp;existing&amp;nbsp;tables&lt;/span&gt;&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log.info(&lt;span style="color: #a31515"&gt;&amp;#8220;Dropping&amp;nbsp;existing&amp;nbsp;tables&amp;#8230;&amp;#8221;&lt;/span&gt;)&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;meta.metadata.drop_all(checkfirst=True)&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #008000"&gt;#&amp;nbsp;Continue&amp;nbsp;as&amp;nbsp;before&lt;/span&gt;&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #008000"&gt;#&amp;nbsp;Create&amp;nbsp;the&amp;nbsp;tables&amp;nbsp;if&amp;nbsp;they&amp;nbsp;aren&amp;#8217;t&amp;nbsp;there&amp;nbsp;already&lt;/span&gt;&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;meta.metadata.create_all(checkfirst=True)&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log.info(&lt;span style="color: #a31515"&gt;&amp;#8220;Successfully&amp;nbsp;set&amp;nbsp;up.&amp;#8221;&lt;/span&gt;)
+                  &lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                this will ensure a proper refresh of the database each time you run a test.
+              &lt;/p&gt;
+
+              &lt;h3&gt;
+                &amp;nbsp;
+              &lt;/h3&gt;
+
+              &lt;h3&gt;
+                Testing
+              &lt;/h3&gt;
+
+              &lt;p&gt;
+                Now that we&amp;rsquo;re setup lets get onto testing (test first).
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                So far my study has found pylons to emphasize functional tests over unit tests. Hopefully, those with more experience will correct me. On the plus side nothing is stopping you from unit tests, and the functional test support is really nice giving you access to the response object including your view.
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                The response object there will let you examine the html returned based on the conditions you&amp;rsquo;ve set. lets not get to advanced yet and just change test_index to look for a specific page title so change the test_index test to the following
+              &lt;/p&gt;
+
+              &lt;div class="wlWriterEditableSmartContent" style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px"&gt;
+                &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+                  &amp;nbsp;&amp;nbsp;&lt;span style="color: #007020"&gt;&lt;strong&gt;def&lt;/strong&gt;&lt;/span&gt;&amp;nbsp;&lt;span style="color: #06287e"&gt;test_index_title&lt;/span&gt;(&lt;span style="color: #007020"&gt;self&lt;/span&gt;):&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;response&amp;nbsp;&lt;span style="color: #666666"&gt;=&lt;/span&gt;&amp;nbsp;&lt;span style="color: #007020"&gt;self&lt;/span&gt;&lt;span style="color: #666666"&gt;.&lt;/span&gt;app&lt;span style="color: #666666"&gt;.&lt;/span&gt;get(url(controller&lt;span style="color: #666666"&gt;=&lt;/span&gt;&lt;span style="color: #4070a0"&gt;&amp;#8216;home&amp;#8217;&lt;/span&gt;,&amp;nbsp;action&lt;span style="color: #666666"&gt;=&lt;/span&gt;&lt;span style="color: #4070a0"&gt;&amp;#8216;index&amp;#8217;&lt;/span&gt;))&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #007020"&gt;&lt;strong&gt;assert&lt;/strong&gt;&lt;/span&gt;&amp;nbsp;&lt;span style="color: #4070a0"&gt;&amp;#8220;&lt;title&gt;Pylons&amp;nbsp;Forum&lt;/title&gt;&amp;#8221;&lt;/span&gt;&amp;nbsp;&lt;span style="color: #007020"&gt;&lt;strong&gt;in&lt;/strong&gt;&lt;/span&gt;&amp;nbsp;response&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #60a0b0"&gt;&lt;i&gt;#&amp;nbsp;Test&amp;nbsp;response&amp;#8230;&lt;/i&gt;&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;p&gt;
+                so what we have here is a test asserting that our web response is able to find &amp;ldquo;&lt;title&gt;Pylons Forum&lt;/title&gt;&amp;rdquo; in the page somewhere. running the following command from the top level directory where test.ini is located:
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                &lt;code&gt;nosetests --with-pylons=test.ini&lt;/code&gt;
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                will results in the following failed test result:
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;&lt;a href="//lostechies.com/ryansvihla/files/2011/03/Picture2_515024A0.png"&gt;&lt;img height="274" width="847" border="0" src="//lostechies.com/ryansvihla/files/2011/03/Picture2_thumb_07C0D6A3.png" alt="Picture 2" style="border-right-width: 0px;border-top-width: 0px;border-bottom-width: 0px;border-left-width: 0px" /&gt;&lt;/a&gt;
+              &lt;/p&gt;
+
+              &lt;h3&gt;
+                Controller and view review
+              &lt;/h3&gt;
+
+              &lt;p&gt;
+                Pylons has a return based controller/action behavior. So it can return a number of objects for now we can focus on raw text and rendering a view.
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                As you can see from the comments rendering a view is as simple as placing one in the template directory
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                edit home.py index action to look like so:
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;div class="wlWriterEditableSmartContent" style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px"&gt;
+                &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+                  &amp;nbsp;&amp;nbsp;&lt;span style="color: #0000ff"&gt;def&lt;/span&gt;&amp;nbsp;index(self):&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: #0000ff"&gt;return&lt;/span&gt;&amp;nbsp;render(&lt;span style="color: #a31515"&gt;&amp;#8216;index.mako&amp;#8217;&lt;/span&gt;)
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                then create a file in the templates directory called index.mako that looks like so
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;div class="wlWriterEditableSmartContent" style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px"&gt;
+                &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+                  &lt;span style="color: #507090"&gt;&lt;!DOCTYPE&amp;nbsp;html&amp;nbsp;PUBLIC&amp;nbsp;&amp;#8220;-//W3C//DTD&amp;nbsp;XHTML&amp;nbsp;1.0&amp;nbsp;Transitional//EN&amp;#8221;&amp;nbsp;&amp;#8220;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&amp;#8221;&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;head&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;title&gt;&lt;/span&gt;Pylons&amp;nbsp;Forum&lt;span style="color: #007000"&gt;&lt;/title&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;/head&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;body&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;div&lt;/span&gt;&amp;nbsp;&lt;span style="color: #0000c0"&gt;id=&lt;/span&gt;&amp;#8220;recentposts&amp;#8221;&amp;nbsp;&lt;span style="color: #0000c0"&gt;style=&lt;/span&gt;&amp;#8220;float:&amp;nbsp;right&amp;#8221;&amp;nbsp;&lt;span style="color: #007000"&gt;&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;table&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;/span&gt;subject&lt;span style="color: #007000"&gt;&lt;/th&gt;&lt;th&gt;&lt;/span&gt;author&lt;span style="color: #007000"&gt;&lt;/th&gt;&lt;th&gt;&lt;/span&gt;date&amp;nbsp;submitted&lt;span style="color: #007000"&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;tbody&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;tr&gt;&lt;td&gt;&lt;/span&gt;jkruse&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;td&gt;&lt;/span&gt;Re:&amp;nbsp;Whats&amp;nbsp;Up&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;td&gt;&lt;/span&gt;06/01/2009&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;tr&gt;&lt;td&gt;&lt;/span&gt;rsvihla&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;td&gt;&lt;/span&gt;Whats&amp;nbsp;Up&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;td&gt;&lt;/span&gt;06/01/2009&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;tr&gt;&lt;td&gt;&lt;/span&gt;thondo&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;td&gt;&lt;/span&gt;Re:&amp;nbsp;Looking&amp;nbsp;for&amp;nbsp;new&amp;nbsp;work&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;td&gt;&lt;/span&gt;05/25/2009&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;tr&gt;&lt;td&gt;&lt;/span&gt;jkruse&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;td&gt;&lt;/span&gt;Re:&amp;nbsp;Looking&amp;nbsp;for&amp;nbsp;new&amp;nbsp;work&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;td&gt;&lt;/span&gt;5/20/2009&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;tr&gt;&lt;td&gt;&lt;/span&gt;usmith&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;td&gt;&lt;/span&gt;Looking&amp;nbsp;for&amp;nbsp;new&amp;nbsp;work&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;td&gt;&lt;/span&gt;05/01/2009&lt;span style="color: #007000"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;/tbody&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;/table&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;/div&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color: #007000"&gt;&lt;/body&gt;&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;h3&gt;
+              &lt;/h3&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                Now that we&amp;rsquo;ve created our view and our action rendering said view, lets run our test again and see what we get:
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                &lt;a href="//lostechies.com/ryansvihla/files/2011/03/Picture4_52B6D823.png"&gt;&lt;img height="169" width="810" border="0" src="//lostechies.com/ryansvihla/files/2011/03/Picture4_thumb_0993BD1B.png" alt="Picture 4" style="border-right-width: 0px;border-top-width: 0px;border-bottom-width: 0px;border-left-width: 0px" /&gt;&lt;/a&gt;
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                &amp;nbsp;
+              &lt;/p&gt;
+
+              &lt;h3&gt;
+                In Closing
+              &lt;/h3&gt;
+
+              &lt;p&gt;
+                This whirlwind tour of testing, views and controllers is at an end. Stay tuned for more in depth coverage of controllers and views in the next post.
+              &lt;/p&gt;
+</code></pre>

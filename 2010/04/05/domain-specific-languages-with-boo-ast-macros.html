@@ -1,0 +1,97 @@
+<hr />
+<p>wordpress_id: 37
+title: 'Domain Specific Languages with Boo: AST Macros'
+date: 2010-04-05T02:40:17+00:00
+author: Ryan Svihla
+layout: post
+wordpress_guid: /blogs/rssvihla/archive/2010/04/04/domain-specific-languages-with-boo-ast-macros.aspx
+dsq_thread_id:
+  - "425624416"
+categories:
+  - Boo
+  - DSL
+redirect_from: "/blogs/rssvihla/archive/2010/04/04/domain-specific-languages-with-boo-ast-macros.aspx/"</p>
+<hr />
+<p>For those of you who don’t know what Boo is its a statically typed CLR language with Python like syntax that lets you extend it’s compiler, and the language itself easily by giving you access to the AST (Abstract Syntax Tree) and compiler’s context directly.&#160; This gives you very powerful tools for building your own language or Domain Specific Language or DSL from here on out. Some examples of DSL’s include rSpec and Fluent NHibernate. In fact the entire subject of what is a DSL and what types of DSL there are and how to create a proper DSL could be a book itself and a fascinating one at that.&#160; </p>
+<p>Which is why I’ve been reading Ayende’s book <a href="http://www.amazon.com/DSLs-Boo-Domain-Specific-Languages/dp/1933988606" target="_blank">DSLs in Boo: Domain Specific Languages in .NET</a>. To make sure I understood the concepts I’ve taken to building a toy BDD DSL called bSpec, it’s got a long way to go to be something useful and I may not care to take it that far, however I did get my brain wrapped around a really cool thing called AST Macros.&#160; </p>
+<p>AST macros give you FULL access to the compiler context and full AST of the code. I could describe this in more detail but a code sample goes light years to making this helpful.</p>
+<p>Let’s say I want to have a “shouldFail” method that fails my spec immediately how would I do that? </p>
+<div style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px" class="wlWriterEditableSmartContent">
+  <div style="font-family:consolas,lucida console,courier,monospace">
+    <span style="color:#408080"><i>#macro&#160;declaration</i></span><br /> macro&#160;should_fail:<br /> &#160;&#160;&#160;&#160;<span style="color:#408080"><i>#create&#160;code&#160;using&#160;Quasi&#160;Quotation&#160;(&#160;&#8221;[|&#8221;&#160;and&#160;&#8221;|]&#8221;&#160;)</i></span><br /> &#160;&#160;&#160;&#160;codeblock&#160;<span style="color:#666666">=</span>&#160;[<span style="color:#666666">|</span>&#160;<br /> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color:#008000"><b>raise</b></span>&#160;AssertionError(<span style="color:#BA2121">&#8220;failed&#160;by&#160;request&#8221;</span>) <br /> &#160;&#160;&#160;&#160;<span style="color:#666666">|</span>]&#160;<span style="color:#408080"><i>#exit&#160;macro&#160;statement</i></span><br /> &#160;&#160;&#160;&#160;<span style="color:#008000"><b>return</b></span>&#160;codeblock&#160;<span style="color:#408080"><i>#now&#160;replace&#160;&#8221;should_fail&#8221;&#160;with&#160;&#8221;raise&#160;AssertionError()&#160;&#8221;</i></span></p> 
+
+    <p>
+      <span style="color:#408080"><i>#client&#160;code</i></span>
+    </p>
+
+    <p>
+      should_fail&#160;<span style="color:#408080"><i>#throws&#160;AssertionError</i></span> </div> </div>
+
+<pre><code>  &lt;p&gt;
+    &amp;#160;
+  &lt;/p&gt;
+
+  &lt;p&gt;
+    In reflector in C# the code looks like so:
+  &lt;/p&gt;
+
+  &lt;div style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px" class="wlWriterEditableSmartContent"&gt;
+    &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+      &lt;span style="color:#008000"&gt;&lt;b&gt;throw&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;new&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0000FF"&gt;AssertionError&lt;/span&gt;(&lt;span style="color:#BA2121"&gt;&amp;#8220;automatic&amp;#160;failure&amp;#160;as&amp;#160;requested&amp;#160;by&amp;#160;&amp;#8217;should&amp;#160;fail&amp;#160;call'&amp;#8221;&lt;/span&gt;);
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;p&gt;
+    So how did this happen?&amp;#160; Well as part of Boo’s compiler pipeline it will run the macros first and replace the macro statement itself with what the macro returns. So far this doesn’t seem particularly interesting until you try and actually manipulate and work with the AST itself or get access to compiler objects.&amp;#160;&amp;#160; For a simple example lets look at what I did with the “describe” macro.
+  &lt;/p&gt;
+
+  &lt;div style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px" class="wlWriterEditableSmartContent"&gt;
+    &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+      &lt;span style="color:#408080"&gt;&lt;i&gt;#Describe&amp;#160;Macro&amp;#160;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+
+      &lt;p&gt;
+        macro&amp;#160;describe:&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#408080"&gt;&lt;i&gt;#creates&amp;#160;a&amp;#160;reference&amp;#160;to&amp;#160;the&amp;#160;first&amp;#160;argument&lt;/i&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;itemtodescribe&amp;#160;&lt;span style="color:#666666"&gt;=&lt;/span&gt;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;cast&lt;/b&gt;&lt;/span&gt;(ReferenceExpression,&amp;#160;describe.Arguments[&lt;span style="color:#666666"&gt;&lt;/span&gt;])&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#408080"&gt;&lt;i&gt;#using&amp;#160;a&amp;#160;simple&amp;#160;trick&amp;#160;to&amp;#160;prevent&amp;#160;compiler&amp;#160;errors.&amp;#160;I&amp;#160;just&amp;#160;want&amp;#160;access&amp;#160;to&amp;#160;the&amp;#160;body&amp;#160;of&amp;#160;&amp;#8221;block&amp;#8221;&amp;#160;so&lt;/i&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#408080"&gt;&lt;i&gt;#&amp;#160;you&amp;#160;can&amp;#160;safely&amp;#160;ignore&amp;#160;block&amp;#160;in&amp;#160;my&amp;#160;example&lt;/i&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#408080"&gt;&lt;i&gt;#note&amp;#160;the&amp;#160;key&amp;#160;is&amp;#160;using&amp;#160;$itemtodescribe&amp;#160;.&amp;#160;this&amp;#160;is&amp;#160;how&amp;#160;you&amp;#160;pass&amp;#160;in&amp;#160;macro&amp;#160;variables&amp;#160;to&amp;#160;the&amp;#160;AST&lt;/i&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;logdescribe&amp;#160;&lt;span style="color:#666666"&gt;=&lt;/span&gt;&amp;#160;[&lt;span style="color:#666666"&gt;|&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;block:&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;_spechash[$itemtodescribe]&amp;#160;&lt;span style="color:#666666"&gt;=&lt;/span&gt;&amp;#160;&lt;span style="color:#008000"&gt;null&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#666666"&gt;|&lt;/span&gt;].Body&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;yield&lt;/b&gt;&lt;/span&gt;&amp;#160;logdescribe&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#408080"&gt;&lt;i&gt;#this&amp;#160;will&amp;#160;become&amp;#160;the&amp;#160;first&amp;#160;statement&lt;/i&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;yield&lt;/b&gt;&lt;/span&gt;&amp;#160;describe.Body&amp;#160;&lt;span style="color:#408080"&gt;&lt;i&gt;#the&amp;#160;specified&amp;#160;code&amp;#160;block&amp;#160;after&amp;#160;&amp;#8221;describe&amp;#160;FooBart:&amp;#160;&amp;#8221;&amp;#160;will&amp;#160;now&amp;#160;be&amp;#160;placed&lt;/i&gt;&lt;/span&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;span style="color:#408080"&gt;&lt;i&gt;#Unit&amp;#160;Test&amp;#160;Code&amp;#160;with&amp;#160;asserts&amp;#160;removed&lt;/i&gt;&lt;/span&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;span style="color:#008000"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0000FF"&gt;&lt;b&gt;DescribeSpecs_When_Not_Nested&lt;/b&gt;&lt;/span&gt;:
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;private&lt;/b&gt;&lt;/span&gt;&amp;#160;_spechash&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;as&lt;/b&gt;&lt;/span&gt;&amp;#160;Hash&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;private&lt;/b&gt;&lt;/span&gt;&amp;#160;_called&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;as&lt;/b&gt;&lt;/span&gt;&amp;#160;List[&lt;span style="color:#008000"&gt;&lt;b&gt;of&lt;/b&gt;&lt;/span&gt;&amp;#160;string]
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;public&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;def&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0000FF"&gt;constructor&lt;/span&gt;():&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;_spechash&amp;#160;&lt;span style="color:#666666"&gt;=&lt;/span&gt;&amp;#160;{}&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;self&lt;/span&gt;._called&amp;#160;&lt;span style="color:#666666"&gt;=&lt;/span&gt;&amp;#160;List[&lt;span style="color:#008000"&gt;&lt;b&gt;of&lt;/b&gt;&lt;/span&gt;&amp;#160;string]()&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;describe&amp;#160;FooBart:&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;_called.Add(&lt;span style="color:#BA2121"&gt;&amp;#8220;called&amp;#160;from&amp;#160;FooBart&amp;#160;spec&amp;#8221;&lt;/span&gt;)&amp;#160;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;span style="color:#408080"&gt;&lt;i&gt;#compiled&amp;#160;output&amp;#160;via&amp;#160;reflector&lt;/i&gt;&lt;/span&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;span style="color:#008000"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0000FF"&gt;&lt;b&gt;DescribeSpecs_When_Not_Nested&lt;/b&gt;&lt;/span&gt;:
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;private&lt;/b&gt;&lt;/span&gt;&amp;#160;_spechash&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;as&lt;/b&gt;&lt;/span&gt;&amp;#160;Hash&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;private&lt;/b&gt;&lt;/span&gt;&amp;#160;_called&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;as&lt;/b&gt;&lt;/span&gt;&amp;#160;List[&lt;span style="color:#008000"&gt;&lt;b&gt;of&lt;/b&gt;&lt;/span&gt;&amp;#160;string]
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;public&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008000"&gt;&lt;b&gt;def&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0000FF"&gt;constructor&lt;/span&gt;():&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;_spechash&amp;#160;&lt;span style="color:#666666"&gt;=&lt;/span&gt;&amp;#160;{}&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;self&lt;/span&gt;._spechash[&lt;span style="color:#008000"&gt;typeof&lt;/span&gt;(FooBart)]&amp;#160;&lt;span style="color:#666666"&gt;=&lt;/span&gt;&amp;#160;&lt;span style="color:#008000"&gt;null&lt;/span&gt;;&amp;#160;&amp;#160;&lt;span style="color:#408080"&gt;&lt;i&gt;#this&amp;#160;is&amp;#160;the&amp;#160;key&amp;#160;change&lt;/i&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008000"&gt;self&lt;/span&gt;._called&amp;#160;&lt;span style="color:#666666"&gt;=&lt;/span&gt;&amp;#160;List[&lt;span style="color:#008000"&gt;&lt;b&gt;of&lt;/b&gt;&lt;/span&gt;&amp;#160;string]()
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;p&gt;
+    So our macro has replaced code again, but this time references a field in a class that it had no prior knowledge of, yet it safely compiles. However, it would not have if there had been no field called “_spechash”. Amazingly this simple trick is only one of many ways you can extend the Boo language in a late binding fashion yet still get all the benefits of the CLR and compile time error checking.&amp;#160; Follow my blog in the coming weeks for more of the Boo language.
+  &lt;/p&gt;
+</code></pre>

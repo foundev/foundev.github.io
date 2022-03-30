@@ -1,0 +1,269 @@
+<hr />
+<p>wordpress_id: 33
+title: 'Take 2: Why we use SOLID in static languages and how we get the same functionality for cheap in dynamic languages'
+date: 2009-11-19T22:46:17+00:00
+author: Ryan Svihla
+layout: post
+wordpress_guid: /blogs/rssvihla/archive/2009/11/19/take-2-why-we-use-solid-in-static-languages-and-how-we-get-the-same-functionality-for-cheap-in-dynamic-languages.aspx
+dsq_thread_id:
+  - "425624388"
+categories:
+  - Dynamic Langs
+  - Python
+  - SOLID
+redirect_from: "/blogs/rssvihla/archive/2009/11/19/take-2-why-we-use-solid-in-static-languages-and-how-we-get-the-same-functionality-for-cheap-in-dynamic-languages.aspx/"</p>
+<hr />
+<p>One of the things we do pretty well at Los Techies is explaining SOLID principles and why they make our code more maintainable and if you’re not familiar with our work on SOLID,&#160; read <a href="https://lostechies.com/blogs/chad_myers/archive/2008/03/07/pablo-s-topic-of-the-month-march-solid-principles.aspx" target="_blank">Chad Meyer&#8217;s post</a> to get an understanding on the Los Techies perspective. Now that you’ve taken a bit of time to read that the following chart takes SOLID’s benefits and then shows how they apply to dynamic languages:</p>
+<p>&#160;</p>
+<table border="2" cellspacing="0" cellpadding="2" width="413">
+  <tr>
+    <td valign="top">
+      Principle
+    </td>
+
+    <td valign="top" width="121">
+      Primary Benefit
+    </td>
+
+    <td valign="top">
+      Secondary Benefit
+    </td>
+
+    <td valign="top" width="86">
+      What dynamic langs do to replace said principle
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      Single Responsibility Principle (SRP)
+    </td>
+
+    <td valign="top" width="121">
+      Classes are in understandable units
+    </td>
+
+    <td valign="top">
+      Testability
+    </td>
+
+    <td valign="top" width="86">
+      Nothing
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      Open-Closed Principle (OCP)
+    </td>
+
+    <td valign="top" width="121">
+      Flexibility
+    </td>
+
+    <td valign="top">
+      Guidance
+    </td>
+
+    <td valign="top" width="86">
+      can override anything globally (monkey patch)
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      Liskov Substitution Principle (LSP)
+    </td>
+
+    <td valign="top" width="121">
+      Not bleeding subclass specific knowledge everywhere
+    </td>
+
+    <td valign="top">
+      Least surprise
+    </td>
+
+    <td valign="top" width="86">
+      Nothing
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      Interface Segregation Principle (ISP)
+    </td>
+
+    <td valign="top" width="121">
+      Interfaces are in understandable units
+    </td>
+
+    <td valign="top">
+      Less work for interface implementation
+    </td>
+
+    <td valign="top" width="86">
+      everything’s an interface (duck typing)
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      Dependency Inversion Principle(DIP)
+    </td>
+
+    <td valign="top" width="121">
+      Flexibility
+    </td>
+
+    <td valign="top">
+      Testability
+    </td>
+
+    <td valign="top" width="86">
+      can override anything globally (monkey patch)
+    </td>
+  </tr>
+</table>
+
+<p>&#160;</p>
+<p>The above is my opinion and I’m sure people will beat me to death because I’m just some dude not many people know about,&#160; but I think I’ve got a grasp of what SOLID means in C# and I’ve grappled with it from a practical perspective.</p>
+<p>You’ll note when it comes to LSP and SRP dynamic languages really give you nothing at all, but OCP, ISP, and DI benefits wise are supplanted by language features in python, ruby, etc.&#160; How does this happen? In the case of ISP and “duck typing” this should be pretty obvious, but in the cases of OCP, DIP</p>
+<p>&#160;</p>
+<p>DIP/OCP testability achieved through C#:</p>
+<p>&#160;</p>
+<div style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px" class="wlWriterEditableSmartContent">
+  <div style="font-family:consolas,lucida console,courier,monospace">
+    <span style="color:#008800"><b>public</b></span>&#160;<span style="color:#008800"><b>class</b></span>&#160;<span style="color:#bb0066"><b>FooBar</b></span><span style="color:#008800"><b>{</b></span></p> 
+
+    <p>
+      &#160;&#160;&#160;&#160;<span style="color:#008800"><b>private</b></span>&#160;IFooService&#160;_service;
+    </p>
+
+    <p>
+      &#160;&#160;&#160;&#160;<span style="color:#008800"><b>public</b></span>&#160;<span style="color:#0066bb"><b>FooBar</b></span>(IFooService&#160;service)<span style="color:#008800"><b>{</b></span><br /> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br /> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_service&#160;=&#160;service;<br /> &#160;&#160;&#160;&#160;<span style="color:#008800"><b>}</b></span>
+    </p>
+
+    <p>
+      &#160;&#160;&#160;&#160;<span style="color:#008800"><b>public</b></span>&#160;<span style="color:#008800"><b>void</b></span>&#160;<span style="color:#0066bb"><b>DoFoo</b></span>()<span style="color:#008800"><b>{</b></span><br /> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_service.run();<br /> &#160;&#160;&#160;&#160;<span style="color:#008800"><b>}</b></span><br /> <span style="color:#008800"><b>}</b></span>
+    </p>
+
+    <p>
+      <span style="color:#888888">//testcode<br /> </span><span style="color:#336699"><br /> [TestFixture]</span><br /> <span style="color:#008800"><b>public</b></span>&#160;<span style="color:#008800"><b>class</b></span>&#160;<span style="color:#bb0066"><b>FooBarSpec</b></span><span style="color:#008800"><b>{</b></span><br /> <span style="color:#336699">&#160;&#160;<br /> &#160;&#160;[Test]</span><br /> &#160;&#160;<span style="color:#008800"><b>public</b></span>&#160;<span style="color:#008800"><b>void</b></span>&#160;<span style="color:#0066bb"><b>should_call_fooservice</b></span>()<span style="color:#008800"><b>{</b></span><br /> &#160;&#160;&#160;&#160;&#160;var&#160;mockfoo&#160;=&#160;<span style="color:#008800"><b>new</b></span>&#160;Mock<IFooService>();&#160;&#160;<br /> &#160;&#160;&#160;&#160;&#160;var&#160;foobar&#160;=&#160;<span style="color:#008800"><b>new</b></span>&#160;FooBar(mockfoo.<span style="color:#888888"><b>object</b></span>);<br /> &#160;&#160;&#160;&#160;&#160;foobar.DoFoo();<br /> &#160;&#160;&#160;&#160;&#160;mockfoo.Verify(foo=>foo.run())<br /> &#160;&#160;&#160;&#160;&#160;&#160;<br /> &#160;&#160;&#160;<span style="color:#008800"><b>}</b></span>
+    </p>
+
+    <p>
+      <span style="color:#008800"><b>}</b></span> </div> </div>
+
+<pre><code>  &lt;p&gt;
+    DIP/OCP equivalent testability achieved through Python:
+  &lt;/p&gt;
+
+  &lt;p&gt;
+    &amp;#160;
+  &lt;/p&gt;
+
+  &lt;div style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px" class="wlWriterEditableSmartContent"&gt;
+    &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+      &lt;span style="color:#008800"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;FooBar&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#003388"&gt;object&lt;/span&gt;):&lt;/p&gt;
+
+      &lt;p&gt;
+        &amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;def&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;DoFoo&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#003388"&gt;self&lt;/span&gt;):&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;service&amp;#160;=&amp;#160;FooService()&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;service.run()
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;span style="color:#888888"&gt;#test&amp;#160;code&lt;/span&gt;&lt;br /&gt; &lt;span style="color:#008800"&gt;&lt;b&gt;import&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;unittest&lt;/b&gt;&lt;/span&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;span style="color:#008800"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;TestFooBar&lt;/b&gt;&lt;/span&gt;(unittest.TestCase):
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;def&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;runmock&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#003388"&gt;self&lt;/span&gt;):&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#003388"&gt;self&lt;/span&gt;.fooservice_run_was_called&amp;#160;=&amp;#160;&lt;span style="color:#003388"&gt;True&lt;/span&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;def&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;test_do_fooservice_is_called&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#003388"&gt;self&lt;/span&gt;):&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;originalrun&amp;#160;=&amp;#160;FooService.run&amp;#160;&lt;span style="color:#888888"&gt;#storing&amp;#160;the&amp;#160;original&amp;#160;method&amp;#160;in&amp;#160;a&amp;#160;variable&amp;#160;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;FooService.run&amp;#160;=&amp;#160;&lt;span style="color:#003388"&gt;self&lt;/span&gt;.runmock&amp;#160;&amp;#160;&lt;span style="color:#888888"&gt;#&amp;#160;I&amp;#8217;m&amp;#160;globally&amp;#160;overriding&amp;#160;the&amp;#160;method&amp;#160;call&amp;#160;FooService.run&amp;#160;AKA&amp;#160;Monkey&amp;#160;Patch&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;FooBar().DoFoo()&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;FooService.run&amp;#160;=&amp;#160;originalrun&amp;#160;&lt;span style="color:#888888"&gt;#globally&amp;#160;put&amp;#160;it&amp;#160;back&amp;#160;to&amp;#160;where&amp;#160;it&amp;#160;was&amp;#160;AKA&amp;#160;Monkey&amp;#160;Patch&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;assert&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#003388"&gt;self&lt;/span&gt;.fooservice_run_was_called&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/div&gt; &lt;/div&gt;
+
+        &lt;p&gt;
+          Now rightfully you may say the Python version has a few more lines of code, and it certainly can be considered ugly…but don’t you see that I replaced an &lt;strong&gt;entire mocking library&lt;/strong&gt; in a few lines of code.&amp;#160; There are also mocking libraries and monkey patch libraries for Python that would shorten my line of code count further.&amp;#160; Testability and flexibility dovetail, but the &lt;strong&gt;global accessibility of class definitions &lt;/strong&gt;is understandably hard to grasp for the static mindset (it took me months), so we’ll continue on to flexibility:
+        &lt;/p&gt;
+
+        &lt;div style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px" class="wlWriterEditableSmartContent"&gt;
+          &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+            &lt;span style="color:#008800"&gt;&lt;b&gt;public&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;interface&lt;/b&gt;&lt;/span&gt;&amp;#160;IOutput&lt;span style="color:#008800"&gt;&lt;b&gt;{&lt;/b&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&lt;br /&gt; &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;void&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;save&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#888888"&gt;&lt;b&gt;string&lt;/b&gt;&lt;/span&gt;&amp;#160;fileloc,&amp;#160;ResultObjects[]&amp;#160;results);&lt;/p&gt;
+
+            &lt;p&gt;
+              &lt;span style="color:#008800"&gt;&lt;b&gt;}&lt;/b&gt;&lt;/span&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+              &lt;span style="color:#008800"&gt;&lt;b&gt;public&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;XmlOutput&lt;/b&gt;&lt;/span&gt;:IOutput&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;{&lt;/b&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;public&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;void&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;save&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#888888"&gt;&lt;b&gt;string&lt;/b&gt;&lt;/span&gt;&amp;#160;fileloc,&amp;#160;ResultObjects[]&amp;#160;results)&lt;span style="color:#008800"&gt;&lt;b&gt;{&lt;/b&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#888888"&gt;//&amp;#160;place&amp;#160;xml&amp;#160;specific&amp;#160;code&amp;#160;here&lt;br /&gt; &lt;/span&gt;&lt;span style="color:#008800"&gt;&lt;b&gt;}&lt;/b&gt;&lt;/span&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+              &lt;span style="color:#008800"&gt;&lt;b&gt;public&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;HtmlOutput&lt;/b&gt;&lt;/span&gt;:&amp;#160;IOutput&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;{&lt;/b&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;public&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;void&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;save&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#888888"&gt;&lt;b&gt;string&lt;/b&gt;&lt;/span&gt;&amp;#160;fileloc,&amp;#160;ResultObjects[]&amp;#160;results)&lt;span style="color:#008800"&gt;&lt;b&gt;{&lt;/b&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#888888"&gt;//&amp;#160;place&amp;#160;html&amp;#160;specific&amp;#160;code&amp;#160;here&lt;br /&gt; &lt;/span&gt;&lt;span style="color:#008800"&gt;&lt;b&gt;}&lt;/b&gt;&lt;/span&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+              &lt;span style="color:#008800"&gt;&lt;b&gt;public&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;TestRunner&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;{&lt;/b&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&lt;br /&gt; &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;private&lt;/b&gt;&lt;/span&gt;&amp;#160;IOutput&amp;#160;_output;&lt;br /&gt; &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;private&lt;/b&gt;&lt;/span&gt;&amp;#160;ITests&amp;#160;_tests;&lt;br /&gt; &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;public&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;StoreTestResults&lt;/b&gt;&lt;/span&gt;(IOutput&amp;#160;output,&amp;#160;ITests&amp;#160;tests)&lt;span style="color:#008800"&gt;&lt;b&gt;{&lt;/b&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;_output&amp;#160;=&amp;#160;output;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;_tests&amp;#160;=&amp;#160;tests; &lt;br /&gt; &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;}&lt;/b&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;public&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;void&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;RunTestsFromDir&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#888888"&gt;&lt;b&gt;string&lt;/b&gt;&lt;/span&gt;&amp;#160;testdirectory,&amp;#160;&lt;span style="color:#888888"&gt;&lt;b&gt;string&lt;/b&gt;&lt;/span&gt;&amp;#160;outfile)&lt;span style="color:#008800"&gt;&lt;b&gt;{&lt;/b&gt;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;var&amp;#160;results&amp;#160;=&amp;#160;_tests.GetResults(testdirectory);&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;_output.save(outputfile,&amp;#160;results)&lt;br /&gt; &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;}&lt;/b&gt;&lt;/span&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+              &lt;span style="color:#888888"&gt;//later&amp;#160;on&amp;#160;we&amp;#160;use&amp;#160;IoC&amp;#160;containers&amp;#160;to&amp;#160;make&amp;#160;this&amp;#160;chain&amp;#160;easy&amp;#160;&lt;br /&gt; &lt;/span&gt;&lt;br /&gt; pubilc&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;static&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;void&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;main&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#888888"&gt;&lt;b&gt;string&lt;/b&gt;&lt;/span&gt;[]&amp;#160;args)&lt;span style="color:#008800"&gt;&lt;b&gt;{&lt;/b&gt;&lt;/span&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+              &amp;#160;&amp;#160;&lt;span style="color:#888888"&gt;//&amp;#160;imagine&amp;#160;contextual&amp;#160;resolution&amp;#160;is&amp;#160;happening&amp;#160;intelligently&amp;#160;&lt;br /&gt; &lt;/span&gt;&amp;#160;&lt;span style="color:#888888"&gt;//&amp;#160;on&amp;#160;the&amp;#160;resolver&amp;#160;because&amp;#160;someone&amp;#160;did&amp;#160;some&amp;#160;cool&amp;#160;stuff&amp;#160;in&amp;#160;windsor&lt;br /&gt; &lt;/span&gt;&amp;#160;&amp;#160;var&amp;#160;runner&amp;#160;=&amp;#160;testcontainer.Resolve&lt;TestRunner&gt;();&lt;br /&gt; &amp;#160;&amp;#160;runner.RunTestsFromDir(args[&lt;span style="color:#0000DD"&gt;&lt;b&gt;&lt;/b&gt;&lt;/span&gt;],&amp;#160;args[&lt;span style="color:#0000DD"&gt;&lt;b&gt;1&lt;/b&gt;&lt;/span&gt;]);&lt;br /&gt; &lt;span style="color:#008800"&gt;&lt;b&gt;}&lt;/b&gt;&lt;/span&gt; &lt;/div&gt; &lt;/div&gt;
+
+              &lt;p&gt;
+                &amp;#160;
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                In Python with “monkey patching” everything is “Open For Extension” and dependencies can “always” be injected. A code sample based on my last blog post but extended to include some more complete client code follows:
+              &lt;/p&gt;
+
+              &lt;p&gt;
+                &amp;#160;
+              &lt;/p&gt;
+
+              &lt;div style="padding-bottom: 0px;margin: 0px;padding-left: 0px;padding-right: 0px;float: none;padding-top: 0px" class="wlWriterEditableSmartContent"&gt;
+                &lt;div style="font-family:consolas,lucida console,courier,monospace"&gt;
+                  &lt;span style="color:#888888"&gt;#in&amp;#160;module&amp;#160;outputlib&lt;/span&gt;&lt;br /&gt; &lt;span style="color:#008800"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;Output&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#003388"&gt;object&lt;/span&gt;):&lt;br /&gt; &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;def&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;save&lt;/b&gt;&lt;/span&gt;(fileloc,&amp;#160;results):&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;pass&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+
+                  &lt;p&gt;
+                    &lt;span style="color:#008800"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;XmlOutput&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#003388"&gt;object&lt;/span&gt;):&lt;br /&gt; &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;def&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;save&lt;/b&gt;&lt;/span&gt;(fileloc,results):&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#dd2200"&gt;&amp;#8220;&amp;#8221;&amp;#8221;xml&amp;#160;specific&amp;#160;logic&amp;#160;here&amp;#8221;&amp;#8221;&amp;#8221;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;pass&lt;/b&gt;&lt;/span&gt;
+                  &lt;/p&gt;
+
+                  &lt;p&gt;
+                    &lt;span style="color:#008800"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;HtmlOutput&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#003388"&gt;object&lt;/span&gt;):&lt;br /&gt; &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;def&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;save&lt;/b&gt;&lt;/span&gt;(fileloc,results):&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#dd2200"&gt;&amp;#8220;&amp;#8221;&amp;#8221;xml&amp;#160;specific&amp;#160;logic&amp;#160;here&amp;#8221;&amp;#8221;&amp;#8221;&lt;/span&gt;&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;pass&lt;/b&gt;&lt;/span&gt;
+                  &lt;/p&gt;
+
+                  &lt;p&gt;
+                    &lt;span style="color:#008800"&gt;&lt;b&gt;class&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;TestRunner&lt;/b&gt;&lt;/span&gt;(&lt;span style="color:#003388"&gt;object&lt;/span&gt;):
+                  &lt;/p&gt;
+
+                  &lt;p&gt;
+                    &amp;#160;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;def&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#0066bb"&gt;&lt;b&gt;run_tests_from_dir&lt;/b&gt;&lt;/span&gt;(testdirectory,&amp;#160;outfile):&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;tests&amp;#160;=&amp;#160;Tests()&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;output&amp;#160;=&amp;#160;Output()&lt;br /&gt; &amp;#160;&amp;#160;&amp;#160;&amp;#160;output.save(&amp;#160;&amp;#160;outfile&amp;#160;&amp;#160;,&amp;#160;tests.get_results(testdirectory)
+                  &lt;/p&gt;
+
+                  &lt;p&gt;
+                    &lt;span style="color:#888888"&gt;#rest&amp;#160;of&amp;#160;the&amp;#160;script&lt;/span&gt;
+                  &lt;/p&gt;
+
+                  &lt;p&gt;
+                    &lt;span style="color:#008800"&gt;&lt;b&gt;import&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;sys&lt;/b&gt;&lt;/span&gt;&lt;br /&gt; &lt;span style="color:#008800"&gt;&lt;b&gt;import&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;outputlib&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#008800"&gt;&lt;b&gt;as&lt;/b&gt;&lt;/span&gt;&amp;#160;&lt;span style="color:#bb0066"&gt;&lt;b&gt;o&lt;/b&gt;&lt;/span&gt;
+                  &lt;/p&gt;
+
+                  &lt;p&gt;
+                    testdirectory&amp;#160;=&amp;#160;sys.argv[&lt;span style="color:#0000DD"&gt;&lt;b&gt;1&lt;/b&gt;&lt;/span&gt;]&lt;br /&gt; outfile&amp;#160;=&amp;#160;sys.argv[&lt;span style="color:#0000DD"&gt;&lt;b&gt;2&lt;/b&gt;&lt;/span&gt;]&lt;br /&gt; &lt;span style="color:#008800"&gt;&lt;b&gt;if&lt;/b&gt;&lt;/span&gt;&amp;#160;outfile.endswith(&lt;span style="color:#dd2200"&gt;&amp;#8220;xml&amp;#8221;&lt;/span&gt;):&lt;br /&gt; &amp;#160;&amp;#160;o.Output&amp;#160;=&amp;#160;o.XmlOutput&amp;#160;&lt;span style="color:#888888"&gt;#globally&amp;#160;override&amp;#160;calls&amp;#160;to&amp;#160;Output&amp;#160;with&amp;#160;XmlOutput.&amp;#160;AKA&amp;#160;Monkey&amp;#160;Patch&lt;/span&gt;&lt;br /&gt; &lt;span style="color:#008800"&gt;&lt;b&gt;elif&lt;/b&gt;&lt;/span&gt;&amp;#160;outfile.endswith(&lt;span style="color:#dd2200"&gt;&amp;#8220;html&amp;#8221;&lt;/span&gt;):&lt;br /&gt; &amp;#160;&amp;#160;o.Output&amp;#160;=&amp;#160;o.HtmlOutput&amp;#160;&lt;span style="color:#888888"&gt;#globally&amp;#160;override&amp;#160;calls&amp;#160;to&amp;#160;Output&amp;#160;with&amp;#160;HtmlOutput&amp;#160;AKA&amp;#160;Monkey&amp;#160;Patch&lt;/span&gt;&lt;br /&gt; runner&amp;#160;=&amp;#160;o.TestRunner()&lt;br /&gt; runner.run_tests_from_dir(testdirectory,&amp;#160;outfile) &lt;/div&gt; &lt;/div&gt;
+
+                    &lt;p&gt;
+                      Again this is longer code than the c# example.. but we’ve replaced an &lt;strong&gt;entire IoC container&lt;/strong&gt; and whatever custom code we would have had to add to create custom dependency resolver for selecting HTML or XML output options has now been replaced by a simple if else if conditional at the beginning of the code base execution. &lt;strong&gt; Now all calls in this runtime, from any module, that reference the Output class will use XmlOutput or HtmlOutput instead&lt;/strong&gt;, all with “monkey patching”.
+                    &lt;/p&gt;
+
+                    &lt;p&gt;
+                      Hopefully, from here the rest of the dominos will fall into place once you get the concepts above, and the things we rely on SOLID for are in some cases already there in dynamic languages. Consequentially, my dynamic code looks (now) nothing like my static code because I no longer have to use DI/IoC to achieve my desired flexibility and access to use proper unit tests.
+                    &lt;/p&gt;
+</code></pre>

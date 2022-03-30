@@ -1,0 +1,86 @@
+<hr />
+<p>layout: post
+title: The Joy and Pain of Swagger
+tags: [swagger, api]</p>
+<hr />
+<p>I have had to use <a href="https://swagger.io">Swagger</a> for many a project since my first introduction to it while working for an ecommerce site in 2015. I did like being able to
+easily convert documentation into viewable API docs complete with executable examples and forms ready to go that let me actually try out my new API. In many ways it is the closest
+to the promise of API first development.</p>
+<h2>Code Generation</h2>
+<p>However, the generation of code with it can be pretty grim, and the trick to gettting the code generated that you want from the spec is challenging to say the least.
+Let us take a look at some of the go code I had generated for the <a href="https://docs.datastax.com/en/astra/docs/_attachments/devopsv1.html">Astra DevOps API</a></p>
+<h3>How to generate</h3>
+<p>Easiest way I have found is through Docker.</p>
+<ul>
+<li>Download swagger.json (or just find the URL)</li>
+<li>create a directory next to where you downloaded the swagger.json file <code>mkdir goclient</code> </li>
+<li>run the following command from the folder you downloaded 
+<code>sh
+docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -v \
+    -i /local/swagger.json \
+    -l go \
+    -o /local/goclient</code>
+This generates something that looks pretty good from a glance, but there are lots of files.</li>
+</ul>
+<p><img width="332" alt="generated_files" src="https://user-images.githubusercontent.com/43972/110086267-71085200-7d92-11eb-8d04-1429a3c9084f.png"></p>
+<h2>Problems</h2>
+<h3>The initial client</h3>
+<p>If you look at the client which there are <a href="https://medium.com/@nate510/don-t-use-go-s-default-http-client-4804cb19f779">no timeouts set by default</a> . Now this is a decision that I get and it is a relatively sane one, but for new to Go folks this is a common issue.
+At least we can override it. Also, the API makes liberaly use of contexts as <a href="https://blog.golang.org/context">per Google's suggestion</a> which allows us to set timeouts per request.</p>
+<p><code>go
+/ NewAPIClient creates a new API client. Requires a userAgent string describing your application.
+// optionally a custom http.Client to allow for advanced features such as caching.
+func NewAPIClient(cfg *Configuration) *APIClient {
+    if cfg.HTTPClient == nil {
+        cfg.HTTPClient = http.DefaultClient # this is a bad default, but at least you can override it
+    }
+    c := &amp;APIClient{}
+    c.cfg = cfg
+    c.common.client = c
+    // API Services
+    c.OperationsApi = (*OperationsApiService)(&amp;c.common)
+    c.PublicApi = (*PublicApiService)(&amp;c.common)
+    return c
+}</code></p>
+<h3>Silly structs and hard to use arguments</h3>
+<p>My least favorite behavior I see from generated swagger and I have seen this across a number of clients in other languages. Here is a type that is created for an integer argument.</p>
+<p><code>go
+// CapacityUnits is used to horizontally scale a database.
+type CapacityUnits struct {
+    // CapacityUnits an be increased by a max of three additional capacity units per operation. Reducing capacity units is not supported at this time
+    CapacityUnits int32 `json:"capacityUnits,omitempty"`
+}</code></p>
+<p>Now I think I know why this happened, I believe it is an optional argument somewhere in the API but this is ugly. I would rather have two methods than to have to instantiate a struct
+when all I want to do is pass in an int32</p>
+<h3>Generated docs never seem to be what you want</h3>
+<p>This a few things going on I don't prefer:</p>
+<ul>
+<li>The comment style is in /* form instead of the typical // you wee with go docs</li>
+<li>OperationsApiService is the name of the type this function is attached to and is not actually the correct annotation for this. It should be AddKeyspace</li>
+<li>The return types are missing because they're too generic. I will admit this is a taste thing.</li>
+</ul>
+<p>```go
+/*
+OperationsApiService Adds keyspace into database
+Adds the specified keyspace to the database
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param databaseID String representation of the database ID
+ * @param keyspaceName Name of database keyspace</p>
+<p><em>/
+func (a </em>OperationsApiService) AddKeyspace(ctx context.Context, databaseID string, keyspaceName string) (*http.Response, error) {
+```</p>
+<h3>The spec can be very complicated</h3>
+<p>During one project this past year <a href="https://github.com/rsds143/stargate/blob/f9a0d3035645fe88d1a646bc03ef9969158d2c58/src/main/scala/stargate/service/Namespaces.scala#L94-L270">I spent an enourmous amount of time trying to get swagger to generate documentation in the correct places</a>, I ended up trying a half dozen similarly named fields just to
+get examples to prepopulate correctly, and one field would work for one type of data and not another.</p>
+<p>In the end most of them unded up working under some combination of type/description/content/mediaType/schema, but there many other locations for example that just never showed up in the UI for some types:</p>
+<p><code>.addParametersItem(new QueryParameter()
+            .name("payload")
+            .required(true)
+          .description("query payload")
+            .content(new Content()
+              .addMediaType("application/json", new MediaType()
+                .schema(new Schema().`type`("string").example(getSample)))
+          )))</code></p>
+<h2>Closing</h2>
+<p>Now even with all the problems I don't think I could do better and it is a great service and overall a great product. I typically use it as a starting point for my code
+and then promply rewrite the bits I don't like very much. However, I think it is helpful for</p>

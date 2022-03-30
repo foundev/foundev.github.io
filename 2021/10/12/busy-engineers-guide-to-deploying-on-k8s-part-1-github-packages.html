@@ -1,0 +1,143 @@
+<hr />
+<p>title: Busy Engineers Guide to Deploying on K8s Part 1 - Setting up Docker with GitHub Packages 
+date: 2021-10-12T00:00:00+00:00
+author: Ryan Svihla
+layout: post
+tags: [ kubernetes, github, docker ]</p>
+<hr />
+<p>Post Valid as of October 12, 2021.</p>
+<h3>Busy Engineer's Guide to Deploying On K8s</h3>
+<ul>
+<li><a href="/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-1-github-packages.html">Part 1 - GitHub Packages (this post)</a></li>
+<li><a href="/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-2-kind.html">Part 2 - Kind </a></li>
+<li><a href="/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-3-helm.html">Part 3 - Helm</a></li>
+</ul>
+<p>While trying to take some coworkers through setting up Docker with GitHub Packages I ran some not obvious edges and my boss pointed out
+for new to Docker and new to Kubernetes people these could be totally derailing corners. I have to agree, so this series will take people front to back
+through setting up Kubernetes with the options most readily available to us.</p>
+<h2>Why GitHub Packages</h2>
+<p>Docker is easy right?! While it is easy to push to DockerHub it would require pushing to private repositories on private accounts and getting
+access to the company DockerHub account is not as easy as we would hope. I have seen similar in other companies so I do not think it is alone that way for us.
+Why not Google, EC2, etc? Same reasons as above. GitHub Packages has the advantage of, if you already have code in GitHub you can now start publishing to docker on 
+company resources and really stay on those resources for as long as you need until the company DockerHub opens up for you. Honestly, I have had several projects
+canceled before I got access to the company DockerHub, so it ends up being a fatal blocker to our progress. Pragmatically, we can just use GitHub Packages and get on with our lives.</p>
+<h2>Why aren't the docs good enough?</h2>
+<p>I had to go through a few hoops to get a package actually setup and showing in the repository in the GitHub UI. While this is all documented, again I knew where to look and had used
+GitHub Packages in an earlier iteration where the documents were honestly clearer to me. Also, the second part of this series will talk about using GitHub Packages with
+to Kubernetes. Again something rather basic for existing Kubernetes users, but that seems to be what the docs expect. This goes very quickly off the rails if you change one thing,
+and we live in a world where there are plenty of options for everything.</p>
+<h2>Getting started</h2>
+<p>I am going the easiest route, if you know how to do any of these things any other way, go for it</p>
+<h3>Mac and Linux</h3>
+<ul>
+<li>Install <a href="https://brew.sh">Homebrew</a> will we need it for lots of things</li>
+<li>Install <a href="https://cli.github.com">GitHub CLI</a> with <code>brew install gh</code></li>
+<li>Login to GitHub with <code>gh auth login</code> </li>
+<li>First question <code>What account do you want to log into?</code> select the <code>GitHub.com</code> option unless your org has an enterprise server and then I can't help you at this time.</li>
+<li>Second question <code>What is your preferred protocol for Git operations?</code> select <code>ssh</code></li>
+<li>Select defaults for the rest of the questions and follow the prompts to complete the login</li>
+</ul>
+<h3>Optional make a repository and nodejs project</h3>
+<ul>
+<li>Create a new repository <code>gh repo create</code> </li>
+<li>"Visibility?" Answer: Private</li>
+<li>"Would you like to add a .gitignore?" Answer: Yes</li>
+<li>"Choose a .gitignore template?" Answer: Node</li>
+<li>"Would you like to add a license?" Answer: Yes (I picked MIT pick your preference)</li>
+<li>"Choose a license MIT License?" Answer: Yes</li>
+<li>"This will create the "..." repository on GitHub. Continue?" Answer: Yes</li>
+<li>"Clone the remote project directory ..?" Answer: Yes</li>
+<li>Install node <code>brew install nodejs</code></li>
+<li>Change to new directory in my case <code>cd demo-ghpkg</code></li>
+<li>Create express site <code>npx express-generator -f</code></li>
+<li>add a Dockerfile to the directory with this content</li>
+</ul>
+<p>```
+FROM node:16</p>
+<h1>Create app directory</h1>
+<p>WORKDIR /usr/src/app</p>
+<h1>Install app dependencies</h1>
+<h1>A wildcard is used to ensure both package.json AND package-lock.json are copied</h1>
+<h1>where available (npm@5+)</h1>
+<p>COPY package*.json ./</p>
+<p>RUN npm install</p>
+<h1>If you are building your code for production</h1>
+<h1>RUN npm ci --only=production</h1>
+<h1>Bundle app source</h1>
+<p>COPY . .</p>
+<p>EXPOSE 3000
+CMD [ "npm", "start" ]
+```</p>
+<ul>
+<li>create a github action <code>mkdir -p .github/workflows</code></li>
+<li>create the file <code>touch .github/workflows/deploy-to-ghpkg.yaml</code></li>
+<li>add the following content to it</li>
+</ul>
+<p>```yaml
+name: GH Packages Push</p>
+<p>on:
+  push:
+    # Publish <code>main</code> as Docker <code>latest</code> image.
+    branches:
+      - main
+      - seed</p>
+<pre><code># Publish `v1.2.3` tags as releases.
+tags:
+  - v*
+</code></pre>
+<p># Run tests for any PRs.
+  pull_request:</p>
+<p>env:
+  IMAGE_NAME: app</p>
+<p>jobs:
+  # Push image to GitHub Packages.
+  push:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read</p>
+<pre><code>steps:
+  - uses: actions/checkout@v2
+
+  - name: Build image
+    run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
+
+  - name: Log in to registry
+    # This is where you will update the PAT to GITHUB_TOKEN
+    run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+  - name: Push image
+    run: |
+      IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+
+      # Change all uppercase to lowercase
+      IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+      # Strip git ref prefix from version
+      VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+      # Strip "v" prefix from tag name
+      [[ "${{ github.ref }}" == "refs/tags/"* ]] &amp;&amp; VERSION=$(echo $VERSION | sed -e 's/^v//')
+      # Use Docker `latest` tag convention
+      [ "$VERSION" == "main" ] &amp;&amp; VERSION=latest
+      echo IMAGE_ID=$IMAGE_ID
+      echo VERSION=$VERSION
+      docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+      docker push $IMAGE_ID:$VERSION
+</code></pre>
+<p><code>``
+* build the docker file to test docker</code>build -t app .<code>if it compiles well you can just skip to the next step
+* go and commit all of this with 2 commands</code>git add -A<code>and</code>git commit -am "the first commit<code>* push the commit</code>git push origin main<code>* View your repo</code>gh repo view --web`
+* Click on the Actions link, you should see your image being built and pushed
+<img title="actions.png" src="/assets/actions.png" border="0" alt="actions" width="600" height="355" />
+* After the image is built you can click on the Packages link
+<img title="packages.png" src="/assets/packages.png" border="0" alt="packages" width="600" height="355" /></p>
+<h3>What did we do</h3>
+<ul>
+<li>We installed the github cli</li>
+<li>We created a repository</li>
+<li>We installed nodejs and created an express project in our new repo</li>
+<li>We built a dockerfile and validated it worked</li>
+<li>We added a GitHub action that pushed the docker file on commit to our GitHub Packages</li>
+<li>We committed our changes in Git and pushed them up to GitHub</li>
+<li>We validated the package built and was available in our repository</li>
+</ul>
+<p>Follow the <a href="/2021/10/12/busy-engineers-guide-to-deploying-on-k8s-part-2-kind.html">next steps here</a></p>
