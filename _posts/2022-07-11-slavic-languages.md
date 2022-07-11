@@ -7,7 +7,7 @@ categories: []
 #image: 'BASEURL/assets/blog/img/.png'
 #description:
 #permalink:
-title: 'title'
+title: 'Slavic Languages'
 ---
 
 
