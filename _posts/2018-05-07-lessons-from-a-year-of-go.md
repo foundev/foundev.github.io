@@ -2,7 +2,6 @@
 date: 2018-05-07T13:16:00+00:00
 author: Ryan Svihla
 layout: post
-tags: [
 ---
 <h1>Lessons from a year of Golang</h1>
 I’m hoping to share in a non-negative way help others avoid the pitfalls I ran into with my most recent work building infrastructure software on top of a Kubernetes using Go, it sounded like an awesome job at first but I ran into a lot of problems getting productive. 

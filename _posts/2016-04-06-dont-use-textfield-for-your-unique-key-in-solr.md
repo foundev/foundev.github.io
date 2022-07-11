@@ -16,7 +16,9 @@ layout: post
   </h3>
   
   <p>
-    {% gist 8b9dd0f5dadfa84f7969851b4ae12e7b %}
+   ```sql
+   CREATE TABLE test.my_table (id text, value text, PRIMARY KEY(id));
+   ```
   </p>
   
   <h3 id="367e">
@@ -24,7 +26,23 @@ layout: post
   </h3>
   
   <p>
-    {% gist 36abe7538944fed4a0120bc7cc288c85 %}
+    ```xml
+    <?xml version=”1.0" encoding=”UTF-8" standalone=”no”?>
+    <schema name=”autoSolrSchema” version=”1.5">
+    <types>
+      <fieldType class=”org.apache.solr.schema.TextField” name=”TextField”>
+        <analyzer type="index">
+          <tokenizer/>
+        </analyzer>
+      </fieldType>
+      <fieldType class=”org.apache.solr.schema.StrField” name=”StrField”/></types>))
+        <fields>
+          <field indexed=”true” name=”value” stored=”true” type=”TextField”/>
+          <field indexed=”true” name=”id” stored=”true” type=”TextField”/>
+      </fields>
+      <uniqueKey>id</uniqueKey>
+    </schema>
+    ```
   </p>
   
   <h4 id="4d8e">
@@ -40,7 +58,11 @@ layout: post
   </p>
   
   <p>
-    {% gist ca4f8e13d8794b3c2d1b7628b6b11887 %}
+  ```sql
+      INSERT INTO test.my_table (id, value) VALUES ( ‘1234’, ‘999’);
+      INSERT INTO test.my_table (id, value) VALUES ( ‘1235’, ‘999’); //this is the guy that never shows up
+      INSERT INTO test.my_table (id, value) VALUES ( ‘123’, ‘999’);
+  ```
   </p>
   
   <p id="6da8">

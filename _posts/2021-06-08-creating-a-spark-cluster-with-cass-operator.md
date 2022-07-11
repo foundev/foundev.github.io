@@ -1,4 +1,6 @@
 ---
+layout: post
+---
 # Creating a Spark cluster with Cass Operator
 
 This is not officially supported as of June 8, 2021 but I am including it anyway since it is not obvious and documented anywhere. There are cases where for some POC or simple
