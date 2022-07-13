@@ -32,7 +32,7 @@ a given point in time, especially when no one else seems to know. The discovery 
 </p>
 
 <p>
-  The best example of this was [sperf](https://github.com/datastax-labs/sperf) which had a lot more than the 
+  The best example of this was <a href="https://github.com/datastax-labs/sperf">sperf</a> which had a lot more than the 
   93 commits listed as it started as a close source product. In sperf, I found my
   way to solve tickets with readable reports that found an answer to a delicate problem, and then I could 
   immediately deploy and share it with everyone, if it had any bugs or had issues, and I was too busy,
@@ -47,6 +47,6 @@ a given point in time, especially when no one else seems to know. The discovery 
 <p>
   For those of you less into CLI I have also done several python notebooks that were hugely useful and for a time I did
   all my reports this way, but the coworkers by and large trended towards cli/unix tools. In another organization though I would
-  happily write [python notebooks like this](https://github.com/foundev/notebooks), but the principle is the same, make your problem solving reusable
+  happily write <a href="https://github.com/foundev/notebooks">python notebooks like this</a>, but the principle is the same, make your problem solving reusable
   and easily shareable, and write tests.
  </p>
