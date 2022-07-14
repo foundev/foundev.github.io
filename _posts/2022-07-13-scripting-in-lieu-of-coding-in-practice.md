@@ -52,7 +52,7 @@ This is a Cassandra startup log I have taken from an old computer. This is only 
 
 # grep
 
-The naive approach is to grep the WARN and ERROR logs and that can bf sometimes interesting and when you are new to a tech thus is a good first pass.
+The naive approach is to grep the WARN and ERROR logs and that can be sometimes interesting and when you are new to a tech thus is a good first pass.
 
 ```sh
 grep WARN server.log
@@ -69,7 +69,7 @@ But grep wouldn't filter the logs down very much and it still requires a lot of 
 
 # Script
 
-OK so you get more experience and you learn INFO contains some super useful information but you learn to look at.specific lines, this is difficult to teach your newer colleagues so you now write this script `get_heap.sh`
+OK so you get more experience and you learn INFO contains some super useful information but you learn to look at specific lines, this is difficult to teach your newer colleagues so you now write this script `get_heap.sh`
 
 ```bash
 #!/bin/sh
@@ -88,13 +88,13 @@ This is great now I see a tiny heap let's say I want to do comparison now to tel
 ```bash
 #!/bin/bash
 
-heap=$(grep 'Heap size' $1  | awk '{print $9}' | awk -F GiB '{print $1}' | awk -F . '{print $1}')
+heap=$(grep 'Heap size' $1  | awk '{print $9}' | awk -F . '{print $1}')
 minheap=16
 if (( $heap < $minheap )); then
         echo "heap size of $heap GiB is smaller than the minimum heap of $minheap GiB needed for decent performance"
 fi
 ```
-Ok great now i get a warning for the new hires. Maybe in the future though somone slips through because they use MiB or even TiB so now I need to either use regexps which no one seems to understand. What happens if I want to find multple types of lines with different rules? Say I want to include those two other issues I eluded too earlier? How do I write automated tests so I don't break it later? While I can still do all that in Bash it is not the common path.
+Ok great now I get a warning for the new hires. Maybe in the future though somone slips through because there are other logs that match but have a different format so now I need to either use regexps which no one seems to understand. What happens if I want to find multple types of lines with different rules? Say I want to include those two other issues I eluded too earlier? How do I write automated tests so I don't break it later? While I can still do all that in Bash it is not the common path.
 
 ## Python
 
@@ -120,3 +120,5 @@ with open(file) as f:
 ```
 
 This is not harder to grasp in fact for many it maybe easier, it is easier to test, to automate and it took me less time to write.
+Most importantly it will be trivial to add several checks without reparsing the whole file
+over and over again.
