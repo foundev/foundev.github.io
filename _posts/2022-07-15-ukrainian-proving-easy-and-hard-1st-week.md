@@ -1,9 +1,3 @@
-—--
-layout: post
-title: ‘Ukrainian Proving Easy And Hard 1st week’
-—--
-
-
 # Ukrainian Proving Easy And Hard 1st week
 
 About a week in with my 2nd try and a lot of things are sticking that I thought would be impossible. I’ll touch on those points and hope I am right as I am just beginning in this language.
