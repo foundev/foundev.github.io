@@ -7,13 +7,13 @@ Early on I ran Windows like everyone else but wanted to get into IT and after th
 
 I was only limited by my imagination, my ability to read arcane things and the patience that required. I grew in leaps and bounds and eventually as my confidence grew I was able to do more and more things and people started asking me to do “computer work” for money.
 
-I ran Linux, FreeBSD and OpenBSD for various tasks in home and at work. But eventually I headed the demand for Windows and spun up on that stack. At this point, I just wanted to stop being poor and in 2003 in the Midwest being a Unix expert did not really pay the bills. I was sad to be leaving behind free software for all the things, but I had to be pragmatic for a bit, thankfully my wishes and the market finally collided.
+I ran Linux, FreeBSD and OpenBSD for various tasks in home and at work. But eventually I heeded the demand for Windows and spun up on that stack. At this point, I just wanted to stop being poor and in 2003, in the Midwest United States, being a Unix expert did not really pay the bills. I was sad to be leaving behind free software for all of my computing, but I had to be pragmatic for a bit, thankfully my wishes and the market finally came together.
 
 ## Popularity of Free Software 
 
-Eventually, several startups got very very big and they ran nearly all free software , except of course the main thing that made them money, but this was by all measures an improvement over the world we had with Microsoft and Oracle.
+Eventually, several startups got very very big and they ran nearly all free software, except of course the main thing that made them money, but this was by all measures an improvement over the world we had with Microsoft and Oracle.
 
-But there had been a bug change in the licenses used. Richard Stallman and the GNU software that I had so admired seemed quaint, the world had begun to prefer the Apache License. Some would call this not free software, but some would.
+But there had been a big change in the licenses used. Richard Stallman and the GNU software that I had so admired seemed quaint, the world had begun to prefer the Apache License. Some would call this not free software, but some would.
 
 More and more large companies took from
 open source without giving back. Some view this as totally fine, I view it as unhelpful, but permitted. It’s part of the system we signed up for if we were using BSD or Apache software.
