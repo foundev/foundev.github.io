@@ -1,15 +1,7 @@
-—
+—--
 layout: post
-tags: [Ukrainian]
-categories: [language]
-#date: 2019-06-25 13:14:15
-#excerpt: ‘’
-#image: ‘BASEURL/assets/blog/img/.png’
-#description:
-#permalink:
 title: ‘Ukrainian Proving Easy And Hard 1st week’
-
-—
+—--
 
 
 # Ukrainian Proving Easy And Hard 1st week
