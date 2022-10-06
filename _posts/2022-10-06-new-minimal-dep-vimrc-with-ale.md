@@ -16,7 +16,7 @@ oodles of time every time I log in running updates on a hundred different packag
 <a href="https://github.com/vim-syntastic/syntastic">Syntastic</a> was one of the old trusty packages I would install through vim packages and it worked a treat but it has moved on 
 as many projects do and the page actually recommended <a href="https://github.com/dense-analysis/ale">ALE</a>. Ale provides a lot that syntastic didn't including completion and lsp support and
 usually it needs little to no configuration (it picked up golps instantly). I played around with it at work and integrated some other plugins and was pretty happy. Later when I started working on something at home
-I tried this more minimal version and still found it very pleasing to use. I have only installed <a href="https://github.com/vim-airline/vim-airline">airline</a> and ALE in my vim plugins. in my vim plugins.
+I tried this more minimal version and still found it very pleasing to use. I have only installed <a href="https://github.com/vim-airline/vim-airline">airline</a> and ALE in my vim plugins.
 </p>
 
 <h2>actual vimrc</h2>
