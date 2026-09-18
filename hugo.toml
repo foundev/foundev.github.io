@@ -1,0 +1,39 @@
+baseURL = "https://blog.foundev.pro/"
+title = "Random Ramblings"
+locale = "en-us"
+disablePathToLower = true
+enableRobotsTXT = true
+# Emit one real file per page (my-post.html) instead of a directory with an
+# index.html inside it, so the legacy .html URLs are served directly.
+uglyURLs = true
+
+[params]
+  author = "Ryan Svihla"
+  tagline = "Blog about tech, travel, food and languages"
+
+# No post uses categories; only tags are in use.
+[taxonomies]
+  tag = "tags"
+
+# Jekyll encoded the date in the filename (YYYY-MM-DD-title.md). Hugo ignores the
+# filename unless told to look at it, and it only strips the date off the slug
+# when the date itself came from the filename -- so filename wins here. A `date:`
+# key in front matter is therefore ignored; the filename is the source of truth.
+[frontmatter]
+  date = [":filename", ":default"]
+
+# Reproduce the URLs Jekyll published, e.g. /2016/04/21/cassandra-local_quorum-should-stay-local.html
+[permalinks]
+  posts = "/:year/:month/:day/:slug"
+
+# Most posts are hand-written HTML inherited from WordPress: Goldmark must not strip it.
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  style = "github"
+
+# kramdown (Jekyll) turned straight quotes, dashes and ellipses into typographic
+# ones by default; Goldmark needs to be told to do the same.
+[markup.goldmark.extensions.typographer]
+  disable = false
