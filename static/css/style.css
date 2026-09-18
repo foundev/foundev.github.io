@@ -536,8 +536,12 @@ main {
   background: var(--code-bg);
   font-size: 0.85rem;
   line-height: 1.55;
+  /* Soft-wrap long lines: plenty of posts here are config files and prose-like
+     snippets where horizontal scrolling hides content. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 4;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .post-body pre code {
