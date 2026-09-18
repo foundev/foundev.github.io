@@ -1,8 +1,15 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-<ul class="post-list">
-  {{ range .Pages }}
-  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> ({{ len .Pages }})</li>
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  <p class="page-lede">{{ len .Pages }} tags across {{ len site.RegularPages }} posts</p>
+</header>
+<ul class="tag-cloud">
+  {{ range .Pages.ByTitle }}
+  <li>
+    <a class="tag" href="{{ .RelPermalink }}">
+      {{ .LinkTitle }}<span class="tag-count">{{ len .Pages }}</span>
+    </a>
+  </li>
   {{ end }}
 </ul>
 {{ end }}

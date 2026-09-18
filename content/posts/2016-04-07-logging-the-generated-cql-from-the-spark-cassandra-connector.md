@@ -1,9 +1,6 @@
 ---
 title: 'Logging The Generated CQL from the Spark Cassandra Connector'
 ---
-
----
----
 <h1>Logging The Generated CQL from the Spark Cassandra Connector</h1>
 <p id="b9fd">
   This has come up some in the last few days so I thought I’d share the available options and the tradeoffs.

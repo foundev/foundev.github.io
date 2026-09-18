@@ -1,9 +1,6 @@
 ---
 title: 'Don’t use TextField for your unique key in Solr'
 ---
-
----
----
 <h1>Don’t use TextField for your unique key in Solr</h1>
 <div>
   <p id="651b">

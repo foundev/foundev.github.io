@@ -1,8 +1,17 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-<ul class="post-list">
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  <p class="page-lede">
+    {{ len .Pages }} post{{ if ne (len .Pages) 1 }}s{{ end }}
+    {{ with .Data.Singular }}tagged &ldquo;{{ $.Title }}&rdquo;{{ end }}
+  </p>
+</header>
+<ul class="post-list post-list--dated">
   {{ range .Pages.ByDate.Reverse }}
-  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  <li class="post-item">
+    <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+    <a class="post-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
   {{ end }}
 </ul>
 {{ end }}

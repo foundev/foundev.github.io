@@ -1,9 +1,6 @@
 ---
 title: 'Alt.Net Evangelism And What We Could Do Better'
 ---
-
----
----
 <h1>Alt.Net Evangelism And What We Could Do Better</h1>
 If we assume our goal as the Alt.Net community is to improve software development as a whole, we&#8217;re doing a pretty bad job. &nbsp;Not that many people have even heard of the concepts we espouse, and those that have but didn&#8217;t convert become hostile to our ideas.&nbsp;
 

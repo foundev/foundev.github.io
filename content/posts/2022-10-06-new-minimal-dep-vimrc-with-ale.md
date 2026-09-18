@@ -1,10 +1,6 @@
 ---
 title: 'New Minimal Dependency vimrc with ALE'
 ---
-
----
----
-
 <h1>New Minimal Dependency vimrc with ALE</h1>
 
 <p>

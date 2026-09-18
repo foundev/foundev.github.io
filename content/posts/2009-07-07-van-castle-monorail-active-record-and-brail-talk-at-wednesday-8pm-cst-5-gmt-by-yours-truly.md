@@ -1,9 +1,6 @@
 ---
 title: 'VAN: Castle Monorail, Active Record and Brail talk at Wednesday 8PM CST (-5 GMT), by yours truly.'
 ---
-
----
----
 <h1>VAN: Castle Monorail, Active Record and Brail talk at Wednesday 8PM CST (-5 GMT), by yours truly.</h1>
 Last week I did a talk on Windsor and it went..ok. I’m not used to online presentations and am more experienced in front of crowds that I can interact with.
 

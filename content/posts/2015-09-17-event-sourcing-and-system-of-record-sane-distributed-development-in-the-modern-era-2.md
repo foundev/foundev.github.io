@@ -1,9 +1,6 @@
 ---
 title: 'Event Sourcing and System of Record: Sane Distributed Development In The Modern Era'
 ---
-
----
----
 <h1>Event Sourcing and System of Record: Sane Distributed Development In The Modern Era</h1>
 No matter the message queue or broker you rely on whether it be RabbitMQ, JMS, ActiveMQ, Websphere, MSMQ and yes even Kafka you can lose messages in any of the following ways:
 

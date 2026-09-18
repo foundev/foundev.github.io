@@ -1,9 +1,6 @@
 ---
 title: 'Domain Modeling Around Deletes or “Using Cassandra as a queue even when you know better'
 ---
-
----
----
 <h1>Domain Modeling Around Deletes or &#8220;Using Cassandra as a queue even when you know better&#8221;</h1>
 # Understanding Deletes
 

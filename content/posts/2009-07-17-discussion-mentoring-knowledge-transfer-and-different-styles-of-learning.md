@@ -1,9 +1,6 @@
 ---
 title: 'Discussion: Mentoring, Knowledge Transfer and Different Styles Of Learning'
 ---
-
----
----
 <h1>Discussion: Mentoring, Knowledge Transfer and Different Styles Of Learning</h1>
 I&rsquo;ve been very fortunate that for most of my adult life, even before I got into tech I&rsquo;ve been &ldquo;the boss&rdquo;, and had gobs of mentoring opportunities. I enjoy it and more importantly I know I will have a greater effect for my company&#8217;s growth through teaching than I would by solely focusing on my advancement.
 

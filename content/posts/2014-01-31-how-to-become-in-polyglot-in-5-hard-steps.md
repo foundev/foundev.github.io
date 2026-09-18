@@ -1,9 +1,6 @@
 ---
 title: 'How to become in polyglot in 5 hard steps.'
 ---
-
----
----
 <h1>How to become in polyglot in 5 hard steps.</h1>
 With today&#8217;s world of programming languages where many languages are better at certain tasks than other&#8217;s you&#8217;ll find it useful to learn multiple languages over the course of your career (as well as keeping your skill sets current).
 

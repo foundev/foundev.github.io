@@ -1,9 +1,6 @@
 ---
 title: 'DataStax a Love Letter'
 ---
-
----
----
 <h1>DataStax a Love Letter</h1>
 <p id="19c9">
   Today is my last day at DataStax and what an amazing ride it was. This is easily the best job and the best group of people I’ve ever worked with and I’m very sad to go, but I had an opportunity I could not pass up.

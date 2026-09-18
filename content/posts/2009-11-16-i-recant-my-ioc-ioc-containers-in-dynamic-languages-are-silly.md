@@ -1,9 +1,6 @@
 ---
 title: 'I recant my IoC! IoC containers in dynamic languages are silly.'
 ---
-
----
----
 <h1>I recant my IoC! IoC containers in dynamic languages are silly.</h1>
 After a year or so of solid Alt Dot Net infection (as far as infections go its a pretty awesome one to have), I decided to give Python a try again for more than one off sysadmin tasks, and to actually dive into it as a newly minted “Agilista”.&#160; 
 

@@ -1,5 +1,8 @@
 {{ define "main" }}
-<h1>404</h1>
-<p><strong>Page not found :(</strong></p>
-<p>The requested page could not be found.</p>
+<section class="hero hero--404">
+  <p class="hero-kicker">404</p>
+  <h1 class="hero-title">Page not found</h1>
+  <p class="hero-lede">That URL does not exist here. It may have moved during one of this blog&rsquo;s migrations.</p>
+  <p class="hero-actions"><a class="button" href="{{ "" | relURL }}">Back to all posts</a></p>
+</section>
 {{ end }}

@@ -1,9 +1,6 @@
 ---
 title: 'Projects in Java with Maven 2'
 ---
-
----
----
 <h1>Projects in Java with Maven 2</h1>
 NOTE: due to issues with spam I’ve turned off comments, I’ve cross posted on my [old blogger account](http://ryansvihla.blogspot.com/2010/05/projects-in-java-with-maven-2.html) if you have comments.
 

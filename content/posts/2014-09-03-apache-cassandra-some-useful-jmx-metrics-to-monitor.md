@@ -1,9 +1,6 @@
 ---
 title: 'Apache Cassandra: Some useful JMX metrics to monitor'
 ---
-
----
----
 <h1>Apache Cassandra: Some useful JMX metrics to monitor</h1>
 This is not a complete list, but is this what I’ve typically had to look out for in the wild. There maybe some selection bias at play since once I’m involved with a cluster it’s not in a good place.
 

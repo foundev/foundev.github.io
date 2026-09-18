@@ -1,9 +1,6 @@
 ---
 title: 'Come see my Boo talk at Alamo Coders on the 14th'
 ---
-
----
----
 <h1>Come see my Boo talk at Alamo Coders on the 14th</h1>
 UPDATE: added links for video, slides and source
 

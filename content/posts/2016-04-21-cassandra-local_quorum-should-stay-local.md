@@ -1,9 +1,6 @@
 ---
 title: 'CASSANDRA LOCAL_QUORUM SHOULD STAY LOCAL'
 ---
-
----
----
 <h1>CASSANDRA LOCAL_QUORUM SHOULD STAY LOCAL</h1>
 <p id="0479">
   A couple of times a week I get a question where someone wants to know how to “failover” to a remote DC in the driver if the local Cassandra DC fails or even if there is only a couple of nodes in the local data center that are down.

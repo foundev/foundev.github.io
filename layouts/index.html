@@ -1,7 +1,21 @@
 {{ define "main" }}
-<ul class="post-list">
-  {{ range site.RegularPages.ByDate.Reverse }}
-  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{ end }}
-</ul>
+<section class="hero">
+  <h1 class="hero-title">{{ site.Title }}</h1>
+  {{ with site.Params.tagline }}<p class="hero-lede">{{ . }}</p>{{ end }}
+  <p class="hero-meta">{{ len site.RegularPages }} posts and counting</p>
+</section>
+
+{{ range site.RegularPages.ByDate.Reverse.GroupByDate "2006" }}
+<section class="year-group">
+  <h2 class="year">{{ .Key }}</h2>
+  <ul class="post-list">
+    {{ range .Pages }}
+    <li class="post-item">
+      <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
+      <a class="post-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
 {{ end }}

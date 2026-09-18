@@ -1,9 +1,6 @@
 ---
 title: 'Retry not Rollback: Idempotent Data Models in Cassandra'
 ---
-
----
----
 <h1>Retry not Rollback: Idempotent Data Models in Cassandra</h1>
 ###  {#737a}
 

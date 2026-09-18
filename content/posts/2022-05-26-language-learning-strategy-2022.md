@@ -1,10 +1,6 @@
 ---
 title: 'Language Learning Strategy 2022'
 ---
-
----
----
-
 <h1>Language Learning Strategy 2022</h1>
 
 <p>Taking a big departure from my traditional blogging to talk about something probably a bit less interesting for those of you who still read this for tech, sorry, you can just skip this one if you want to read up on tech. </p>

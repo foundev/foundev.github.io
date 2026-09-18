@@ -1,9 +1,6 @@
 ---
 title: 'My Cassandra 2.0 Diagnostics Checklist (Brain Dump)'
 ---
-
----
----
 <h1>My Cassandra 2.0 Diagnostics Checklist (Brain Dump)</h1>
 UPDATE:
   
