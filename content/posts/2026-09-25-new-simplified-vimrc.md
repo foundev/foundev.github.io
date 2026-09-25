@@ -9,7 +9,7 @@ Due to my use of AI I rarely drop to a text editor now. However, vim is wired in
 
 ```vim
 
-all plug#begin()
+call plug#begin()
 " List your plugins here
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/vim-lsp'
